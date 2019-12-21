@@ -1,0 +1,79 @@
+set nocompatible
+
+" annoyances
+set backspace=2           " aka indent,eol,start. vi-compat backspace is annoying
+set clipboard=unnamedplus " Use system clipboard ('+' register)
+set ffs=unix,dos,mac      " default to UNIX encodings (\n)
+set hidden                " don't delete buffers when you switch through them
+set magic                 " \. not . for literal dots and so on
+set nobackup              " stop bothering me with backups!
+set noerrorbells          " stop. bothering. me. with. noises.
+set nofoldenable          " don't start with everything folded
+set nolazyredraw          " update the screen when it's time to update it
+set noswapfile            " no ~ files (TODO: maybe have a swap/undo dir instead)
+set noundofile            " no .un files
+let g:is_bash=1           " yes, use bash for highlighting. at least for now.
+
+" major annoyances
+if !has('nvim') " vim fails to into colors unless you claim to be xterm
+    let oldterm = &term
+    if &term =~ "-256color$" " neovim is fine tho
+        set term=xterm-256color
+    endif
+    if oldterm =~? '\(tmux\|screen\)'
+        set t_ut= " tmux/screen need xterm-* but break background cleaning
+    endif " neovim should still be fine
+endif
+
+" ui
+set background=dark " white text on black, get over it
+set laststatus=2    " always have a status line (2=always)
+set mat=2           " see: showmatch. do it for less long
+set number          " line numbers
+set scrolloff=2     " 2 lines around the cursor at all times (remove?)
+set showmatch       " quickly show where the matching (, etc is
+syntax on           " syntax highlighting is not evil
+set termguicolors   " truecolor
+set ttyfast         " I swear, this isn't 1998
+set t_Co=256        " you might *think* I don't have colors. I do tho
+set visualbell      " you can have the window blink tho
+set wrap            " wrap > broken
+if !has('nvim')     " plsgofasts (no meaning on neovim)
+    set ttymouse=xterm2
+endif
+" ui-plugins
+let g:airline_powerline_fonts=1            " we have powerline fonts! :D
+let g:airline#extensions#tabline#enabled=1 " buffers=tabs when tabc=1
+
+" interaction
+filetype plugin on     " enable ftplugin stuff
+filetype indent on     " allow custom indents per ft - e.g go/elixir 2-spaces
+set loadplugins        " plugins = good
+set mouse=a            " meh, mice can be convenient
+set pastetoggle=<F2>   " press F2 to toggle "paste" mode
+set smartindent        " this is the less annoying variant
+set spelllang=en       " I speaken ze ingles
+set whichwrap+=<,>,h,l " hl and arrows can switch lines
+
+" tabs (maybe move to annoyances later)
+set expandtab     " tabs are spaces
+set shiftwidth=4  " indention: 4
+set softtabstop=4 " see tabstop
+set tabstop=4     " tabs count as 4 spaces
+" tab-plugins
+let g:vim_markdown_folding_disabled=1 " folding's on
+
+" mappings
+" F12 to reparse syntax
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>
+" gt to re-align text based on previous pattern
+noremap gt :Tabularize<CR>
+" :Sprunge to upload current buffer to sprunge.us
+command! Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
+
+color pencil
+
+if filereadable(glob("~/.vim/vimrc.local"))
+    source ~/.vim/vimrc.local " overwrite things here
+endif
