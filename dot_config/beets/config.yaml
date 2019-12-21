@@ -1,0 +1,11 @@
+directory: ~/Music
+library: ~/.local/share/beets.db
+incremental: yes
+
+plugins: bpd edit fetchart fromfilename info inline lastgenre mbsync replaygain scrub web
+
+bpd:
+  password: musicalthrones
+
+replaygain:
+  backend: gstreamer
