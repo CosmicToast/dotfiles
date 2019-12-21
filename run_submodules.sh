@@ -1,2 +1,2 @@
 #!/bin/sh
-chezmoi source -- submodule update --remote --recursive
+chezmoi source -- submodule update --init --remote --recursive
