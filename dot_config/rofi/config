@@ -1,0 +1,9 @@
+rofi.combi-modi: ssh,drun
+rofi.font: Hack 15
+rofi.matching: fuzzy
+rofi.modi: combi,run
+rofi.parse-known-hosts: true
+rofi.sort: true
+rofi.sorting-method: fzf
+rofi.terminal: alacritty
+rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
