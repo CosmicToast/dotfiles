@@ -1,0 +1,72 @@
+[alias]
+    aa = add -A
+    ap = add -p
+    bd = branch -D
+    cs = commit --verbose --gpg-sign
+    ci = commit --verbose
+    co = checkout
+    cb = checkout -b
+    cp = commit --patch
+    dc = diff --cached
+    hr = reset --hard HEAD
+    last = log -1 --stat
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+    pf = push --force
+    st = status
+    stat = diff --stat
+[apply]
+    whitespace = warn
+[color]
+    ui = true
+[core]
+    editor = nvim
+    filemode = false
+    trustctime = false
+    whitespace = blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
+[credential]
+    helper = cache --timeout=3600
+[help]
+    autocorrect = 1
+[merge]
+    tool = vimdiff
+[mergetool]
+    keepbackup = false
+    keeptemporaries = false
+    prompt = false
+[pager]
+    stat = false
+[pull]
+    rebase = true
+[push]
+    default = simple
+[sendemail]
+    smtpencryption = tls
+    smtpserver = mail.toast.cafe
+    smtpserverport = 587
+    smtpuser = toast
+[status]
+    branch = true
+    short = true
+[user]
+    email = toast@toast.cafe
+    name = Chloe Kudryavtsev
+
+[url "git@github.com:5paceToast/"]
+    insteadOf = "st:"
+
+[url "https://github.com/"]
+    insteadOf = "gh:"
+
+[url "git@gitlab.com:SpaceToast/"]
+    insteadOf = "lst:"
+
+[url "https://gitlab.com/"]
+    insteadOf = "gl:"
+
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+
+# vim: ft=gitconfig
