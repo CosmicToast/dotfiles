@@ -40,10 +40,11 @@
 [push]
     default = simple
 [sendemail]
+    from = toast+misc@toast.cafe
     smtpencryption = tls
-    smtpserver = mail.toast.cafe
+    smtpserver = smtp.soverin.net
     smtpserverport = 587
-    smtpuser = toast
+    smtpuser = toast@toast.cafe
 [status]
     branch = true
     short = true
