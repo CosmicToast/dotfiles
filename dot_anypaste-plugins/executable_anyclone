@@ -1,0 +1,21 @@
+#!/bin/sh
+case $1 in
+    check_eligibility)
+        true
+        ;;
+    upload)
+        d=$(date +%Y/%m/%d)
+        rclone copyto "$ap_path" "fafnir:shared/anypaste/$d/$ap_human_name"
+        echo >&2
+        echo "Direct: https://minio.toast.cafe/shared/anypaste/$d/$ap_human_name"
+        echo
+        ;;
+    get_info)
+        echo '[name]'
+        echo 'RClone'
+        echo '[description]'
+        echo 'LMAO'
+        echo '[tags]'
+        echo 'private'
+        echo 'direct'
+esac
