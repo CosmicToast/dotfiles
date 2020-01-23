@@ -1,4 +1,6 @@
 #!/bin/zsh
+(( $+commands[exa] )) || return
+
 # removes default ls-likes, replaces them with exa variants
 unalias ls ll l la
 
