@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 (( $+commands[fd] )) || return # find(1) sucks, not worth without fd
 
 # if it's not set yet, set it
