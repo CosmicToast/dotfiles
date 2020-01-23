@@ -1,5 +1,6 @@
 #!/bin/zsh
 [[ $# -gt 0 ]] || return
+(( $+commands[streamlink] )) || return
 zstyle -s :function:twitch ${1:l} stream || stream=${1:l}
 shift
 streamlink twitch.tv/$stream "$@"
