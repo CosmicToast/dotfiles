@@ -12,7 +12,7 @@ path+=(
 )
 
 if (( $+commands[luarocks] )); then
-    path+=( $(luarocks path --lr-bin) )
+    PATH="$PATH:$(luarocks path --lr-bin)" # luarocks puts :s in the output
     eval $(luarocks path --no-bin)
 fi
 if (( $+commands[opam] )); then
