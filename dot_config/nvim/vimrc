@@ -24,6 +24,9 @@ if !has('nvim') " vim fails to into colors unless you claim to be xterm
         set t_ut= " tmux/screen need xterm-* but break background cleaning
     endif " neovim should still be fine
 endif
+if has('nvim')
+    set rtp^=/usr/share/vim/vimfiles/ " let vim piggy back off of vim packages
+endif
 
 " ui
 set background=dark " white text on black, get over it
