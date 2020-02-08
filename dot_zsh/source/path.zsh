@@ -5,6 +5,7 @@ export LUAROCKS_CONFIG=~/.config/luarocks/config.lua
 
 path+=(
     ~/bin
+    ~/Applications
     ~/.local/cargo/bin
     ~/.local/go/bin
     ~/.local/yarn/bin
