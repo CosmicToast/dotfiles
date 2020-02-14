@@ -1,0 +1,10 @@
+player=mpv
+verbose-player
+
+{{- if eq .chezmoi.hostname "LapToast" }}
+default-stream=720p,720p60,1080p60,best
+{{- else }}
+default-stream=best
+{{- end }}
+
+player-passthrough=hls,http,rtmp
