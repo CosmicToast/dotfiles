@@ -1,0 +1,16 @@
+#!/bin/zsh
+local ext=
+local f=
+local p=
+
+# calling `sourceall zsh` will source *.zsh, otherwise *
+(( $# > 0 )) && ext=".$1"
+
+for p in $apath
+do
+    [[ -d $p ]] || continue
+    for f in $p/*$ext(.N)
+    do
+        [[ -r $f ]] && . $f
+    done
+done

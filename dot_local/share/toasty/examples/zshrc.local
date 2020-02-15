@@ -1,0 +1,11 @@
+# example of a basic local zshrc
+
+autoload autosource # for plugins
+autosource sudo # enable sudo plugin
+
+autoload sprunge # something with output | sprunge, and sprunge < somefile
+
+# get a non-default prompt
+autoload -Uz promptinit
+promptinit
+prompt pure
