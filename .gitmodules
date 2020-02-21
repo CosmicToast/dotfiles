@@ -1,4 +1,0 @@
-[submodule "dot_config/nvim/pack/vim-toastpack"]
-	path = dot_config/nvim/pack/vim-toastpack
-	url = https://github.com/5paceToast/vim-toastpack.git
-	branch = master
