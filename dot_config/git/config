@@ -19,7 +19,6 @@
 [color]
     ui = true
 [core]
-    editor = nvim
     filemode = false
     trustctime = false
     whitespace = blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
