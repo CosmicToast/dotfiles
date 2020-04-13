@@ -1,6 +1,8 @@
 alias cat=bat
 alias cp='cp --reflink=auto'
 alias dif='colordiff -u'
+alias dit='docker run --rm -it'
+alias drun='dit -v "$PWD":/pwd -w /pwd'
 alias g=genius
 alias less='less -R'
 alias m=micro
