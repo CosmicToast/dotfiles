@@ -1,0 +1,31 @@
+#!/bin/sh
+: "${anyminio_cli:=mc}"
+
+case $1 in
+    check_eligibility)
+        true
+        ;;
+    upload)
+        d=$(date +%Y/%m/%d)
+        path="$anyminio_prefix/$d/$ap_human_name"
+        "$anyminio_cli" cp "$ap_path" "$path"
+        url=$($anyminio_cli ls --json "$path" | jq -r .url)
+        echo >&2
+        echo "Link: $url"
+        echo "Direct: $url"
+        echo
+        ;;
+    get_info)
+        echo '[name]'
+        echo 'Minio'
+        echo '[description]'
+        echo 'Uses minio-client to upload to an arbitrary location (+date and human name). Requires jq to run.'
+        echo '[tags]'
+        echo 'direct'
+        echo 'permanent'
+        echo 'private'
+        echo '[config]'
+        echo 'optional|anyminio_mcli|binary to use as minio-client, defaults to mc'
+        echo 'required|anyminio_prefix|prefix to place data into, e.g target/shared/anypaste'
+        echo 'optional|MC_HOST_target|authorization env to use for *target* if not configured'
+esac
