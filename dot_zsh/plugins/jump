@@ -1,0 +1,4 @@
+#!/bin/zsh
+(( $+commands[jump] )) || return
+export JUMP_HOME=~/.local/share/jump
+eval "$(jump shell zsh)"
