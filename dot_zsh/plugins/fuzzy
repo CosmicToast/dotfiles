@@ -14,14 +14,12 @@ case $fuzzy_command in
         export FZF_DEFAULT_COMMAND="$FUZZY_DEFAULT"
         export FZF_ALT_C_COMMAND="$FUZZY_ALT_C"
         export FZF_CTRL_T_COMMAND="$FUZZY_CTRL_T"
-        . /usr/share/fzf/key-bindings.zsh
-        . /usr/share/fzf/completion.zsh
+        . /usr/share/fzf/**/*.zsh
         ;;
     sk)
         export SKIM_DEFAULT_COMMAND="$FUZZY_DEFAULT"
         export SKIM_ALT_C_COMMAND="$FUZZY_ALT_C"
         export SKIM_CTRL_T_COMMAND="$FUZZY_CTRL_T"
-        . /usr/share/skim/key-bindings.zsh
-        . /usr/share/skim/completion.zsh
+		. /usr/share/skim/**/*.zsh
         ;;
 esac
