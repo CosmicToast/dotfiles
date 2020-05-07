@@ -8,9 +8,13 @@ case $1 in
     upload)
         d=$(date +%Y/%m/%d)
         path="$anyminio_prefix/$d/$ap_human_name"
-        "$anyminio_cli" cp "$ap_path" "$path"
-        url=$($anyminio_cli ls --json "$path" | jq -r .url)
-        echo >&2
+        
+        "$anyminio_cli" cp "$ap_path" "$path" ||
+        	{ echo 'ERROR: Upload failed!' >&2; exit 1; }
+        url=$($anyminio_cli ls --json "$path" | jq -r .url) ||
+        	{echo 'ERROR: Fetching object information failed!' >&2; exit 2; }
+
+        echo
         echo "Link: $url"
         echo "Direct: $url"
         echo
