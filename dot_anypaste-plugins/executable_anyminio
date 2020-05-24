@@ -12,7 +12,7 @@ case $1 in
         "$anyminio_cli" cp "$ap_path" "$path" ||
         	{ echo 'ERROR: Upload failed!' >&2; exit 1; }
         url=$($anyminio_cli ls --json "$path" | jq -r .url) ||
-        	{echo 'ERROR: Fetching object information failed!' >&2; exit 2; }
+        	{ echo 'ERROR: Fetching object information failed!' >&2; exit 2; }
 
         echo
         echo "Link: $url"
