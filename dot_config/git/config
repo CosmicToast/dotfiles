@@ -51,7 +51,7 @@
     email = toast@toast.cafe
     name = Chloe Kudryavtsev
 
-[url "git@github.com:5paceToast/"]
+[url "git@github.com:CosmicToast/"]
     insteadOf = "st:"
 
 [url "https://github.com/"]
