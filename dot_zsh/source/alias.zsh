@@ -9,3 +9,4 @@ alias m=micro
 alias ossh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR'
 alias tar=bsdtar
 alias vim=nvim
+alias yaegi='rlwrap yaegi'
