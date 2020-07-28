@@ -10,3 +10,6 @@ alias ossh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o L
 alias tar=bsdtar
 alias vim=nvim
 alias yaegi='rlwrap yaegi'
+
+alias bshar='bsdtar --format=shardump'
+alias shar='bsdtar --format=shar'
