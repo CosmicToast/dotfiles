@@ -1,0 +1,3 @@
+CGO_ENABLED=0
+GO111MODULE=on
+GOPATH=/home/toast/.local/go

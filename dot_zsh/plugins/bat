@@ -1,0 +1,4 @@
+#!/bin/zsh
+(( $+commands[bat] )) || return
+
+alias cat=bat pcat='bat -p'

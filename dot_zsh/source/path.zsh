@@ -1,8 +1,3 @@
-export CARGO_HOME=~/.local/cargo
-export DENO_DIR=~/.local/deno
-export GOPATH=~/.local/go
-export LUAROCKS_CONFIG=~/.config/luarocks/config.lua
-
 if (( $+commands[luarocks] )); then
     PATH="$PATH:$(luarocks path --lr-bin)" # luarocks puts :s in the output
     eval $(luarocks path --no-bin)
