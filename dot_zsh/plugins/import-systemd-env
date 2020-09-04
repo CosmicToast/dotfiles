@@ -1,0 +1,15 @@
+#!/bin/zsh
+# only applies to systemd
+p1=$(ps -p 1 -o comm=)
+[[ "$p1" = "systemd" ]] || return
+
+# we *import* expected systemd user env from environment.d
+# I might later make a standalone utility just for that (environment.d on non-systemd systems)
+
+# warning: root access will mean being able to inject arbitrary code into your shell
+# by way of replacing that executable
+# this is why we test for systemd as pid1 (right now) rather than the presence of the binary
+while read -r l; do
+	eval export $l
+
+done < <(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
