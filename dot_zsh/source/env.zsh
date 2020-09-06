@@ -1,6 +1,7 @@
 export EDITOR==micro
 export GIT_EDITOR==micro
-export PAGER='less -R'
+export LESS='-R --mouse --wheel-lines=4'
+export PAGER='less'
 
 if [[ -z $TERMINFO_DIRS ]]; then
 	autoload -Uz autosource
