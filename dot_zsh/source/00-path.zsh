@@ -19,5 +19,6 @@ path+=(
     ~/.local/cargo/bin
     ~/.local/go/bin
     ~/.local/yarn/bin
+    ~/.local/pipx/bin
     ~/.gem/ruby/*/bin(N)
 )
