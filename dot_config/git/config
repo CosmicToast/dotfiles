@@ -26,6 +26,8 @@
     helper = cache --timeout=3600
 [help]
     autocorrect = 1
+[init]
+	defaultBranch = main
 [merge]
     tool = vimdiff
 [mergetool]
