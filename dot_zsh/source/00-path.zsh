@@ -21,4 +21,5 @@ path+=(
     ~/.local/yarn/bin
     ~/.local/pipx/bin
     ~/.gem/ruby/*/bin(N)
+    ~/.local/box
 )
