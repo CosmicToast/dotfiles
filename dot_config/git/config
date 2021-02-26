@@ -41,10 +41,10 @@
 [push]
     default = simple
 [sendemail]
-    from = toast+misc@toast.cafe
+    from = toast@toast.cafe
     smtpencryption = tls
-    smtpserver = smtp.soverin.net
-    smtpserverport = 587
+    smtpserver = smtp.migadu.com
+    smtpserverport = 465
     smtpuser = toast@toast.cafe
 [status]
     branch = true
