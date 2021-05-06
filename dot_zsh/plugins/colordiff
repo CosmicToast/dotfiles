@@ -1,4 +1,0 @@
-#!/bin/zsh
-(( $+commands[colordiff] )) || return
-
-alias diff=colordiff dif='colordiff -u'

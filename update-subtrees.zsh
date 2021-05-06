@@ -1,7 +1,8 @@
 #!/bin/zsh
 
+# example:
+# dot_local/share/toasty https://github.com/cosmictoast/toasty-zsh
 subtrees=(
-    dot_local/share/toasty st:toasty-zsh
 )
 
 for key val in ${(kv)subtrees}

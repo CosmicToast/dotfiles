@@ -1,5 +1,0 @@
-#!/bin/zsh
-(( $+commands[gnome-keyring-daemon] )) || return
-if [[ -z $SSH_AUTH_SOCK ]]; then
-	export $(gnome-keyring-daemon -s)
-fi

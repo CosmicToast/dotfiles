@@ -1,4 +1,0 @@
-#!/bin/zsh
-(( $+commands[jump] )) || return
-
-eval "$(jump shell zsh)"

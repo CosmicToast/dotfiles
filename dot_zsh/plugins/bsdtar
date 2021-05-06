@@ -1,4 +1,0 @@
-#!/bin/zsh
-(( $+commands[bsdtar] )) || return
-
-alias tar=bsdtar bshar='bsdtar --format=shardump' shar='bsdtar --format=shar'
