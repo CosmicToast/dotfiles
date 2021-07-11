@@ -1,8 +1,8 @@
 VERSION = '0.1.0'
 
-local fmt    = import 'fmt'
 local micro  = import 'micro'
 local config = import 'micro/config'
+local util   = import 'micro/util'
 
 function init()
 	micro.SetStatusInfoFn 'textcount.lines'
@@ -19,7 +19,7 @@ end
 
 -- utils
 local function pattern(b, pat)
-	local str  = fmt.Sprintf('%s', b:Bytes())
+	local str  = util.String(b:Bytes())
 	local _, n = str:gsub(pat, '')
 	return n
 end
