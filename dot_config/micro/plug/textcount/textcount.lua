@@ -17,9 +17,21 @@ function init()
 	config.MakeCommand('wc', wc, config.NoComplete)
 end
 
+local function selections(b)
+	local str = ''
+	for _, c in b:GetCursors()() do
+		if c:HasSelection() then
+			str = str .. ' ' .. util.String(c:GetSelection())
+		end
+	end
+	return str
+end
+
 -- utils
 local function pattern(b, pat)
-	local str  = util.String(b:Bytes())
+	-- if there is a selection, we use it, else we use b:Bytes()
+	local str = selections(b)
+	if str == '' then str = util.String(b:Bytes()) end
 	local _, n = str:gsub(pat, '')
 	return n
 end
