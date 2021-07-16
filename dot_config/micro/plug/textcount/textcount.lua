@@ -5,10 +5,12 @@ local config = import 'micro/config'
 local util   = import 'micro/util'
 
 function init()
+	micro.SetStatusInfoFn 'textcount.characters'
 	micro.SetStatusInfoFn 'textcount.lines'
 	micro.SetStatusInfoFn 'textcount.paragraphs'
 	micro.SetStatusInfoFn 'textcount.sentences'
 	micro.SetStatusInfoFn 'textcount.words'
+	config.MakeCommand('wc.c', charactersi, config.NoCompete)
 	config.MakeCommand('wc.l', linesi, 		config.NoComplete)
 	config.MakeCommand('wc.p', paragraphsi, config.NoComplete)
 	config.MakeCommand('wc.s', sentencesi, 	config.NoComplete)
@@ -55,6 +57,9 @@ local function geni(f, label)
 end
 
 -- functions
+characters  = genb '.'
+charactersi = geni(characters, 'Characters')
+
 lines  = genb '\n'
 linesi = geni(lines, 'Lines')
 
