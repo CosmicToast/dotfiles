@@ -40,6 +40,8 @@
     rebase = true
 [push]
     default = simple
+[rebase]
+	autoSquash = true
 [sendemail]
     from = toast@toast.cafe
     smtpencryption = tls
@@ -70,5 +72,3 @@
     process = git-lfs filter-process
     required = true
     clean = git-lfs clean -- %f
-
-# vim: ft=gitconfig
