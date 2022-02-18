@@ -1,0 +1,5 @@
+#!/bin/sh
+YELLOW=$(echo '\x1b[0;33m')
+NORMAL=$(echo '\x1b[0m')
+
+exec fossil timeline -F "${YELLOW}[%h]${NORMAL} %c" "$@"
