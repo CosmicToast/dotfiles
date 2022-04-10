@@ -1,4 +1,4 @@
-type -qf exa || exit
+type -qf exa || return
 alias ls  exa
 alias l  'exa -l'
 alias ll 'exa -l'

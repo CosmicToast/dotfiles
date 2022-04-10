@@ -1,4 +1,4 @@
-type -qf ugrep || exit
+type -qf ugrep || return
 alias grep 'ugrep -G'
 alias egrep 'ugrep -E'
 alias fgrep 'ugrep -F'
@@ -11,7 +11,7 @@ alias zxgrep 'ugrep -zW'
 
 alias xdump 'ugrep -X ""'
 
-type -qf ug || exit
+type -qf ug || return
 alias uq 'ug -Q'
 alias ux 'ug -UX'
 alias uz 'ug -z'
