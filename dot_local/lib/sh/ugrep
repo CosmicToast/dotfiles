@@ -1,0 +1,8 @@
+. hascmd ugrep || return
+alias grep='ugrep -G -.'
+alias xdump='ugrep -X ""'
+
+. hascmd ug || return
+alias uq='ug -Q'
+alias ux='ug -UX'
+alias uz='ug -z'

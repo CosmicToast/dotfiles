@@ -1,0 +1,2 @@
+. hascmd rg || return
+[ -f ~/.config/ripgrep.conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep.conf
