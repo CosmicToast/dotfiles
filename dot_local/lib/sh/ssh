@@ -1,2 +1,2 @@
 . hascmd ssh || return
-alias ossh='ssh -p StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=Error'
+alias ossh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=Error'
