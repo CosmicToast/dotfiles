@@ -6,6 +6,7 @@
     ci = commit --verbose
     co = checkout
     cb = checkout -b
+    ch = cherry-pick
     cp = commit --patch
     dc = diff --cached
     hr = reset --hard HEAD
@@ -43,16 +44,16 @@
 [rebase]
 	autoSquash = true
 [sendemail]
-    from = toast@toast.cafe
+    from = code@toast.bunkerlabs.net
     smtpencryption = tls
     smtpserver = smtp.migadu.com
     smtpserverport = 465
-    smtpuser = toast@toast.cafe
+    smtpuser = toast@bunkerlabs.net
 [status]
     branch = true
     short = true
 [user]
-    email = toast@toast.cafe
+    email = code@toast.bunkerlabs.net
     name = Chloe Kudryavtsev
 
 [url "git@github.com:CosmicToast/"]
