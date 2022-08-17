@@ -15,6 +15,7 @@
     pf = push --force
     st = status
     stat = diff --stat
+	root = rev-parse --show-toplevel
 [apply]
     whitespace = warn
 [color]
