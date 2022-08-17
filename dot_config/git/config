@@ -1,76 +1,76 @@
 [alias]
-    aa = add -A
-    ap = add -p
-    bd = branch -D
-    cs = commit --verbose --gpg-sign
-    ci = commit --verbose
-    co = checkout
-    cb = checkout -b
-    ch = cherry-pick
-    cp = commit --patch
-    dc = diff --cached
-    hr = reset --hard HEAD
-    last = log -1 --stat
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-    pf = push --force
-    st = status
-    stat = diff --stat
+	aa = add -A
+	ap = add -p
+	bd = branch -D
+	cs = commit --verbose --gpg-sign
+	ci = commit --verbose
+	co = checkout
+	cb = checkout -b
+	ch = cherry-pick
+	cp = commit --patch
+	dc = diff --cached
+	hr = reset --hard HEAD
+	last = log -1 --stat
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+	pf = push --force
+	st = status
+	stat = diff --stat
 	root = rev-parse --show-toplevel
 [apply]
-    whitespace = warn
+	whitespace = warn
 [color]
-    ui = true
+	ui = true
 [core]
-    filemode = false
-    trustctime = false
-    whitespace = blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
+	filemode = false
+	trustctime = false
+	whitespace = blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
 [credential]
-    helper = cache --timeout=3600
+	helper = cache --timeout=3600
 [help]
-    autocorrect = 1
+	autocorrect = 1
 [init]
 	defaultBranch = main
 [merge]
-    tool = vimdiff
+	tool = vimdiff
 [mergetool]
-    keepbackup = false
-    keeptemporaries = false
-    prompt = false
+	keepbackup = false
+	keeptemporaries = false
+	prompt = false
 [pager]
-    stat = false
+	stat = false
 [pull]
-    rebase = true
+	rebase = true
 [push]
-    default = simple
+	default = simple
 [rebase]
 	autoSquash = true
 [sendemail]
-    from = code@toast.bunkerlabs.net
-    smtpencryption = tls
-    smtpserver = smtp.migadu.com
-    smtpserverport = 465
-    smtpuser = toast@bunkerlabs.net
+	from = code@toast.bunkerlabs.net
+	smtpencryption = tls
+	smtpserver = smtp.migadu.com
+	smtpserverport = 465
+	smtpuser = toast@bunkerlabs.net
 [status]
-    branch = true
-    short = true
+	branch = true
+	short = true
 [user]
-    email = code@toast.bunkerlabs.net
-    name = Chloe Kudryavtsev
+	email = code@toast.bunkerlabs.net
+	name = Chloe Kudryavtsev
 
 [url "git@github.com:CosmicToast/"]
-    insteadOf = "st:"
+	insteadOf = "st:"
 
 [url "https://github.com/"]
-    insteadOf = "gh:"
+	insteadOf = "gh:"
 
 [url "git@gitlab.com:SpaceToast/"]
-    insteadOf = "lst:"
+	insteadOf = "lst:"
 
 [url "https://gitlab.com/"]
-    insteadOf = "gl:"
+	insteadOf = "gl:"
 
 [filter "lfs"]
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
