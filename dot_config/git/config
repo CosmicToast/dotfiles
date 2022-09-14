@@ -42,6 +42,7 @@
 	rebase = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [rebase]
 	autoSquash = true
 [sendemail]
@@ -62,9 +63,6 @@
 
 [url "https://github.com/"]
 	insteadOf = "gh:"
-
-[url "git@gitlab.com:SpaceToast/"]
-	insteadOf = "lst:"
 
 [url "https://gitlab.com/"]
 	insteadOf = "gl:"
