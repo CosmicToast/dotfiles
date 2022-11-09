@@ -64,6 +64,7 @@ local function enable(name, opts)
 	end
 end
 
+enable 'clojure_lsp'
 enable('denols', deno)
 enable 'gopls'
 enable 'ltex'

@@ -59,7 +59,7 @@ packer.startup({function(iuse)
 
 	-- language features
 	use { ft = 'janet' } 'janet-lang/janet.vim'
-	use { ft = {'scm', 'janet' } }
+	use { ft = {'scm', 'janet', 'clojure' } }
 		'gpanders/nvim-parinfer'
 end, config = {
 	compile_path = compiled,
