@@ -1,3 +1,5 @@
+---@diagnostic disable:undefined-global
+
 local util = require 'util'
 
 local env = vim.env
@@ -11,11 +13,21 @@ if not util.hp 'which-key.nvim' then
 else
 	-- general bindings that aren't specific to a plugin
 	require 'which-key'.register {
+		-- diagnostics
+		['<leader>'] = {
+			e = { vim.diagnostic.open_float, 'diag float' },
+			q = { vim.diagnostic.setloclist, 'diag locations' },
+		},
+		['[d'] = { vim.diagnostic.goto_prev, 'prev diag' },
+		[']d'] = { vim.diagnostic.goto_next, 'next diag' },
+
+		-- source
 		['<leader>s'] = {
 			name = '+source',
 			v = { function() dofile(env.MYVIMRC) end, 'Vimrc' },
 			['%'] = { '<cmd>source %<cr>', 'Current File' },
 		},
+
 		-- document missing builtins
 		['g'] = {
 			t = 'Next tab',

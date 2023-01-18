@@ -7,6 +7,7 @@ require 'plugins'
 local options = {
 	timeoutlen = 300,
 	clipboard = 'unnamedplus',
+	completeopt = 'menu,menuone,noselect',
 	mouse = 'a',
 	smartcase = true,
 	smartindent = true,

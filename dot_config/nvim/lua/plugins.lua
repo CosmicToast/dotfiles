@@ -14,8 +14,8 @@ end
 local sust = {}
 colors = {
 	default = 'default', -- in case of no packer
-	scheme = 'tokyonight', -- in case of yes packer
-	lualine = 'tokyonight', -- per plugin stuff from here on
+	scheme = 'onedark', -- in case of yes packer
+	lualine = 'onedark', -- per plugin stuff from here on
 }
 packer.startup({function(iuse)
 	local tf  = require 'transformer'
@@ -32,6 +32,7 @@ packer.startup({function(iuse)
 
 	-- colors
 	use 'folke/tokyonight.nvim'
+	use 'olimorris/onedarkpro.nvim'
 
 	-- editor
 	use { run = function()
@@ -40,6 +41,9 @@ packer.startup({function(iuse)
 		{ config = function() require 'nvim-treesitter.configs'.setup {
 			ensure_installed = 'all',
 			sync_install = true,
+			highlight = {
+				enable = true,
+			},
 		} end }
 		'nvim-treesitter/nvim-treesitter'
 	sus 'neovim/nvim-lspconfig'
@@ -47,19 +51,33 @@ packer.startup({function(iuse)
 
 	sus 'linty-org/readline.nvim'
 	sus 'nvim-lualine/lualine.nvim'
-	kbd 'kyazdani42/nvim-tree.lua'
 	use 'folke/which-key.nvim'
+
+	-- completion, signatures, and snippets
+	sus 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'PaterJason/cmp-conjure'
+
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/cmp-path'
+
+	use 'dcampos/nvim-snippy'
+	use 'dcampos/cmp-snippy'
+
+	use 'ray-x/lsp_signature.nvim'
 
 	-- interactive features
 	use { run = 'make' } 'nvim-telescope/telescope-fzf-native.nvim'
 	kbd { requires = 'nvim-lua/plenary.nvim' } 'nvim-telescope/telescope.nvim'
+	kbd 'kyazdani42/nvim-tree.lua'
 
 	kbd 'ggandor/leap.nvim'
 	kbd 'Olical/conjure'
 
 	-- language features
 	use { ft = 'janet' } 'janet-lang/janet.vim'
-	use { ft = {'scm', 'janet', 'clojure' } }
+	use { ft = {'scm', 'janet', 'clojure', 'fennel' } }
 		'gpanders/nvim-parinfer'
 end, config = {
 	compile_path = compiled,
