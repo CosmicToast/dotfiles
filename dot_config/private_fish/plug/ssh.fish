@@ -1,2 +1,0 @@
-type -qf ssh || return
-alias ossh 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=Error'
