@@ -1,0 +1,5 @@
+classic: false
+color:
+  theme: ansi
+icons:
+    when: never
