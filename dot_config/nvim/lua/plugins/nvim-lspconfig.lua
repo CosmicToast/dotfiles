@@ -84,5 +84,5 @@ enable('clojure_lsp', clojure)
 enable('denols', deno)
 enable 'gopls'
 enable 'ltex'
-enable 'sumneko_lua'
+enable 'lua_ls'
 enable('tsserver', tss)
