@@ -21,5 +21,8 @@ local options = {
 	numberwidth = 2,
 	scrolloff = 4,
 	sidescrolloff = 4,
+	foldmethod = 'expr',
+	foldexpr = 'nvim_treesitter#foldexpr()',
+	foldlevelstart = 99,
 }
 for k, v in pairs(options) do vim.opt[k] = v end
