@@ -12,7 +12,6 @@ return {
 			return {
 				ai = {},
 				align = {},
-				animate = {},
 				basics = {},
 				bracketed = {},
 				comment = {},
