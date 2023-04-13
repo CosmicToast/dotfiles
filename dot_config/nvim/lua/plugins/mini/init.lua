@@ -7,24 +7,31 @@ return {
 				require ("mini." .. k).setup(v)
 			end
 		end,
-		opts = {
-			ai = {},
-			align = {},
-			animate = {},
-			basics = {},
-			bracketed = {},
-			comment = {},
-			completion = {},
-			cursorword = {},
-			indentscope = {},
-			jump2d = {},
-			move = {},
-			splitjoin = {},
-			starter = {},
-			statusline = {},
-			surround = {},
-			tabline = {},
-			trailspace = {},
+		opts = function()
+			local starter = require 'mini.starter'
+			return {
+				ai = {},
+				align = {},
+				animate = {},
+				basics = {},
+				bracketed = {},
+				comment = {},
+				completion = {},
+				cursorword = {},
+				indentscope = {},
+				jump2d = {},
+				move = {},
+				splitjoin = {},
+				starter = {
+					items = {
+						starter.sections.telescope(),
+						starter.sections.builtin_actions(),
+					},
+				},
+				statusline = {},
+				surround = {},
+				tabline = {},
+				trailspace = {},
 		}
-	},
+	end },
 }
