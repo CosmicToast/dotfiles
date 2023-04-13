@@ -15,6 +15,12 @@ return {
 			sync_intall = true,
 			highlight = {
 				enable = true,
+				disable = {
+					'markdown',
+				},
+				additional_vim_regex_highlighting = {
+					'markdown',
+				},
 			},
 		},
 	},
@@ -23,6 +29,12 @@ return {
 	{
 		'janet-lang/janet.vim',
 		ft = 'janet',
+	},
+	{
+		'preservim/vim-markdown',
+		version = false,
+		dependencies = {'godlygeek/tabular'},
+		ft = 'markdown',
 	},
 
 	-- helpers for lisps
