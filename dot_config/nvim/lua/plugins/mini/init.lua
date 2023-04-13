@@ -22,12 +22,7 @@ return {
 				jump2d = {},
 				move = {},
 				splitjoin = {},
-				starter = {
-					items = {
-						starter.sections.telescope(),
-						starter.sections.builtin_actions(),
-					},
-				},
+				starter = require 'plugins.mini.starter',
 				statusline = {},
 				surround = {},
 				tabline = {},
