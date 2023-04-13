@@ -15,7 +15,7 @@ return {
 		},
 		opts = {
 			ensure_installed = 'all',
-			ignore_install = { 'neorg' },
+			ignore_install = { 'norg' },
 			sync_intall = true,
 			highlight = {
 				enable = true,
