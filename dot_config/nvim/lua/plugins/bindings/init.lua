@@ -4,4 +4,8 @@ return {
 		lazy = true,
 		opts = {},
 	},
+	{
+		'linty-org/readline.nvim',
+		lazy = true,
+	},
 }
