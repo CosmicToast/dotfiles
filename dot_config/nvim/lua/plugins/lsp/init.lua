@@ -23,6 +23,7 @@ return {
 				return function(f) return p(f) end
 			end
 			return {
+				clangd = {},
 				clojure_lsp = {
 					root_dir = plist('project.clj', 'deps.edn', 'bb.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
 				},
