@@ -43,4 +43,5 @@ else
 	vim.opt.rtp:prepend(lazypath)
 	require 'lazy'.setup("plugins", {})
 	require 'bindings'
+	vim.cmd [[colorscheme starlight]]
 end
