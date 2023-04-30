@@ -28,12 +28,14 @@ return {
 					root_dir = plist('project.clj', 'deps.edn', 'bb.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
 				},
 				denols = {
+					autostart = false,
 					root_dir = plist('deno.json', 'deno.jsonc'),
 				},
 				gopls = {},
 				ltex  = {},
 				lua_ls = {},
 				tsserver = {
+					autostart = false,
 					root_dir = plist('tsconfig.json', 'package.json'),
 				},
 			}
