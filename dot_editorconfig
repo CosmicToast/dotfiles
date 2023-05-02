@@ -1,0 +1,14 @@
+# global editorconfig
+root = true
+
+# reasonable everything defaults
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# don't mess with my makefiles thanks
+[Makefile]
+indent_style = tab
+indent_size  = 4
