@@ -29,6 +29,7 @@ return {
 	{
 		'janet-lang/janet.vim',
 		ft = 'janet',
+		enabled = false,
 	},
 	{
 		'preservim/vim-markdown',

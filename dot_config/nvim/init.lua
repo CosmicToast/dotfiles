@@ -1,33 +1,17 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
+-- allow running code unconditionally before or after plugins / noplugins are loaded
+local function doif(path)
+	local cpath = vim.fn.stdpath 'config' .. '/'
+	if vim.fn.filereadable(cpath .. path) > 0 then
+		dofile(cpath .. path)
+	end
+end
 
--- options
-local options = {
-	timeoutlen = 300,
-	clipboard = 'unnamedplus',
-	completeopt = 'menu,menuone,noselect',
-	mouse = 'a',
-	smartcase = true,
-	smartindent = true,
-	backup = false,
-	swapfile = false,
-	termguicolors = true,
-	expandtab = false,
-	shiftwidth = 4,
-	tabstop = 4,
-	number = true,
-	numberwidth = 2,
-	scrolloff = 4,
-	sidescrolloff = 4,
-	foldmethod = 'expr',
-	foldexpr = 'nvim_treesitter#foldexpr()',
-	foldlevelstart = 99,
-}
-for k, v in pairs(options) do vim.opt[k] = v end
+-- leader, localleader, options
+doif 'pre.lua'
 
 -- plugins
 if vim.fn.executable 'git' == 0 then
-	require 'noplugins'
+	doif 'noplugins.lua'
 else
 	local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 	if not vim.loop.fs_stat(lazypath) then
@@ -45,3 +29,6 @@ else
 	require 'bindings'
 	vim.cmd [[colorscheme starlight]]
 end
+
+-- custom file associations etc
+doif 'post.lua'
