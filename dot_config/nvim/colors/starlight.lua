@@ -60,4 +60,7 @@ b16.setup {
 	-- palette = b16_palette
 	palette = palette,
 }
+
+-- additional highlight groups
+
 vim.g.colors_name = 'starlight'
