@@ -24,6 +24,8 @@
 	filemode = false
 	trustctime = false
 	whitespace = blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
+[diff]
+	algorithm = histogram
 [credential]
 	helper = cache --timeout=3600
 [help]
