@@ -1,3 +1,28 @@
+-- lsp options + runtime bindings
+-- technically I could do some tree transforms, but that's a pain and I haven't done fennel stuff yet
+-- + I'm not sure how feasible fennel stuff is in bootstrap-phase
+-- anyway this is here to be in front of everything, so you can edit the settings you actually care about
+local gopts = function(plist)
+	return {
+		clangd = {},
+		clojure_lsp = {
+			root_dir = plist('project.clj', 'deps.edn', 'bb.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
+		},
+		denols = {
+			autostart = false,
+			root_dir = plist('deno.json', 'deno.jsonc'),
+		},
+		gopls = {},
+		ltex  = {},
+		lua_ls = {},
+		tsserver = {
+			autostart = false,
+			root_dir = plist('tsconfig.json', 'package.json'),
+		},
+		zls = {},
+	}
+end
+
 local attach = require 'plugins.lsp.attach'
 local caps   = require 'plugins.lsp.capabilities'
 
@@ -22,23 +47,7 @@ return {
 				local p = require 'lspconfig.util'.root_pattern(...)
 				return function(f) return p(f) end
 			end
-			return {
-				clangd = {},
-				clojure_lsp = {
-					root_dir = plist('project.clj', 'deps.edn', 'bb.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
-				},
-				denols = {
-					autostart = false,
-					root_dir = plist('deno.json', 'deno.jsonc'),
-				},
-				gopls = {},
-				ltex  = {},
-				lua_ls = {},
-				tsserver = {
-					autostart = false,
-					root_dir = plist('tsconfig.json', 'package.json'),
-				},
-			}
+			return gopts(plist)
 		end
 	},
 }
