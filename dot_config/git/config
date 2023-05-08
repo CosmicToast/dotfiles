@@ -1,49 +1,19 @@
 [alias]
 	aa = add -A
-	ap = add -p
 	bd = branch -D
-	cs = commit --verbose --gpg-sign
 	ci = commit --verbose
 	co = checkout
 	cb = checkout -b
-	ch = cherry-pick
-	cp = commit --patch
 	dc = diff --cached
-	hr = reset --hard HEAD
-	last = log -1 --stat
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-	pf = push --force
 	st = status
-	stat = diff --stat
 	root = rev-parse --show-toplevel
 [apply]
 	whitespace = warn
-[color]
-	ui = true
-[core]
-	filemode = false
-	trustctime = false
-	whitespace = blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
 [diff]
 	algorithm = histogram
-[credential]
-	helper = cache --timeout=3600
-[help]
-	autocorrect = 1
 [init]
 	defaultBranch = main
-[merge]
-	tool = vimdiff
-[mergetool]
-	keepbackup = false
-	keeptemporaries = false
-	prompt = false
-[pager]
-	stat = false
-[pull]
-	rebase = true
 [push]
-	default = simple
 	autoSetupRemote = true
 [rebase]
 	autoSquash = true
@@ -65,9 +35,6 @@
 
 [url "https://github.com/"]
 	insteadOf = "gh:"
-
-[url "https://gitlab.com/"]
-	insteadOf = "gl:"
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
