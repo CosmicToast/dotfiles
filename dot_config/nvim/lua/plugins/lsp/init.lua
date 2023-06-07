@@ -15,6 +15,7 @@ local gopts = function(plist)
 		gopls = {},
 		ltex  = {},
 		lua_ls = {},
+		texlab = {filetypes = {'tex', 'plaintex', 'bib', 'latex'}},
 		tsserver = {
 			autostart = false,
 			root_dir = plist('tsconfig.json', 'package.json'),
