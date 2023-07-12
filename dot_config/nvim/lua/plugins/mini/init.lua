@@ -18,12 +18,10 @@ return {
 				completion = {},
 				cursorword = {},
 				indentscope = {},
-				jump2d = {},
 				move = {},
 				splitjoin = {},
 				starter = require 'plugins.mini.starter',
 				statusline = {},
-				surround = {},
 				tabline = {},
 				trailspace = {},
 		}
