@@ -1,6 +1,7 @@
 return {
 	'folke/flash.nvim',
 	opts = {},
+	event = "VeryLazy",
 	keys = {
 		{
 			's';
