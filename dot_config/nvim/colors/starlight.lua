@@ -4,23 +4,23 @@ local starlight = {
 	black     = '#242424',
 	brblack   = '#616161',
 
-	red       = '#CF1745',
-	brred     = '#FF1A53',
+	red       = '#F62B5A',
+	brred     = '#FF4D51',
 
-	green     = '#3ECF5B',
-	brgreen   = '#17E640',
+	green     = '#47B413',
+	brgreen   = '#35D450',
 
-	yellow    = '#CFCF17',
-	bryellow  = '#ECFF1A',
+	yellow    = '#E3C401',
+	bryellow  = '#E9E836',
 
-	blue      = '#0BA6DA',
-	brblue    = '#1AC6FF',
+	blue      = '#24ACD4',
+	brblue    = '#5DC5F8',
 
-	magenta   = '#D926AC',
-	brmagenta = '#F53DC7',
+	magenta   = '#F2AFFD',
+	brmagenta = '#FEABF2',
 
-	cyan      = '#17CFA1',
-	brcyan    = '#1AFFC6',
+	cyan      = '#13C299',
+	brcyan    = '#24DFC4',
 
 	white     = '#E6E6E6',
 	brwhite   = '#FFFFFF',
@@ -51,8 +51,8 @@ local palette = {
 	base0A = starlight.cyan,      -- classes, bold, search bg
 	base0B = starlight.green,     -- strings, inherits, markup code, diff+
 	base0C = starlight.brred,     -- support, regexp, escapes, quotes
-	base0D = starlight.brblue,    -- functions, methods, attributes, headings
-	base0E = starlight.brmagenta, -- keywords, storage, selector, markup italic, diff~
+	base0D = starlight.blue,    -- functions, methods, attributes, headings
+	base0E = starlight.magenta, -- keywords, storage, selector, markup italic, diff~
 	base0F = starlight.white,     -- deprecated, open/close
 }
 
