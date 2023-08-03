@@ -2,7 +2,7 @@
 -- and doesn't fit in elsewhere
 return {
 	{ 'folke/lazy.nvim', version = false },
-	'Olical/aniseed',
+	{ "Olical/nfnl", ft = "fennel" },
 	{
 		'Olical/conjure',
 		config = function(_, opts)
