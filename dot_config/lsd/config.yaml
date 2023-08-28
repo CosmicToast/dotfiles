@@ -1,5 +1,5 @@
 classic: false
 color:
-  theme: ansi
+  theme: custom
 icons:
     when: never

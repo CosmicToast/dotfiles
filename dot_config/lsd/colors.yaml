@@ -1,0 +1,30 @@
+# exa-like
+user: yellow
+group: yellow
+permission:
+  read: yellow
+  write: red
+  exec: green
+  octal: dark_magenta
+  exec-sticky: dark_magenta
+  # TODO: no-access, acl, context
+
+date:
+  hour-old: blue
+  day-old: blue
+  older: dark_blue
+
+size:
+  none:   dark_grey
+  small:  dark_green
+  medium: dark_green
+  large:  red
+
+# closest approximations from default theme
+inode:
+  valid: magenta
+  invalid: dark_grey
+links:
+  valid: magenta
+  invalid: dark_grey
+tree-edge: dark_grey
