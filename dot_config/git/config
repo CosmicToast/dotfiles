@@ -28,7 +28,7 @@
 	short = true
 [user]
 	email = code@toast.bunkerlabs.net
-	name = Chloe Kudryavtsev
+	name = Chloé Vulquin
 
 [url "git@github.com:CosmicToast/"]
 	insteadOf = "st:"
