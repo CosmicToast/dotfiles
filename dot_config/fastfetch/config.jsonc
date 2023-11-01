@@ -1,0 +1,36 @@
+{
+  // preamble
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "modules": [
+	"title",
+	{
+	  "type": "custom",
+	  "format": "im tosti",
+	},
+    "separator",
+    "version",
+    "datetime",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "display",
+    "cpu",
+    "gpu",
+    "memory",
+    "disk",
+    "colors"
+  ],
+
+  "logo": {
+    "type": "sixel",
+    "source": "~/Pictures/fetch.png",
+    "width": 45,
+    "padding": {
+      "right": 1
+    }
+  },
+}
