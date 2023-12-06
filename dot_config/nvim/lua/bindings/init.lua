@@ -1,7 +1,6 @@
 for _, v in ipairs {
 	'builtins',
 	'plugins',
-	'readline',
 } do
 	require ('bindings.' .. v)
 end

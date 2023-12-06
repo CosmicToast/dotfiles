@@ -1,8 +1,20 @@
+local conjureft = {
+	'clojure',
+	'fennel',
+	'hy',
+	'janet',
+	'julia',
+	'lisp',
+	'racket',
+	'scheme'
+}
+
 -- simple stuff that doesn't need any handling
 -- and doesn't fit in elsewhere
 return {
 	{ 'folke/lazy.nvim', version = false },
 	{ "Olical/nfnl", ft = "fennel" },
+	{ 'stevearc/dressing.nvim', opts = {}},
 	{
 		'Olical/conjure',
 		config = function(_, opts)
@@ -14,17 +26,9 @@ return {
 			['mapping#prefix'] = '<localleader>e',
 			['extract#tree_sitter#enabled'] = true,
 			-- disabling lua, python, rust
-			filetypes = {
-				'clojure',
-				'fennel',
-				'hy',
-				'janet',
-				'julia',
-				'lisp',
-				'racket',
-				'scheme',
-			},
+			filetypes = conjureft,
 			['filetype#fennel'] = 'conjure.client.fennel.stdio',
 		},
+		ft = conjureft,
 	},
 }

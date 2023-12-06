@@ -5,7 +5,6 @@ return {
 		opts = {},
 	},
 	{
-		'linty-org/readline.nvim',
-		lazy = true,
+		'tpope/vim-rsi'
 	},
 }

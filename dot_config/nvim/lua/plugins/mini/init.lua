@@ -8,7 +8,6 @@ return {
 			end
 		end,
 		opts = function()
-			local starter = require 'mini.starter'
 			return {
 				ai = {},
 				align = {},
