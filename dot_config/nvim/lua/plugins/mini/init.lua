@@ -19,7 +19,7 @@ return {
 				indentscope = {},
 				move = {},
 				splitjoin = {},
-				starter = require 'plugins.mini.starter',
+				-- starter = require 'plugins.mini.starter',
 				statusline = {},
 				tabline = {},
 				trailspace = {},
