@@ -31,4 +31,5 @@ return {
 		},
 		ft = conjureft,
 	},
+	{ 'tpope/vim-repeat' },
 }

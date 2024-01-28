@@ -22,5 +22,6 @@ local options = {
 	foldmethod = 'expr',
 	foldexpr = 'nvim_treesitter#foldexpr()',
 	foldlevelstart = 99,
+	wrap = true,
 }
 for k, v in pairs(options) do vim.opt[k] = v end
