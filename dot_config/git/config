@@ -1,22 +1,59 @@
 [alias]
 	aa = add -A
 	bd = branch -D
-	ci = commit --verbose
+	ci = commit
 	co = checkout
-	cb = checkout -b
-	dc = diff --cached
+	df = difftool
 	st = status
 	root = rev-parse --show-toplevel
-[apply]
-	whitespace = warn
+[branch]
+	sort = -committerdate
+[columns]
+	ui = auto
+[commit]
+	verbose = true
+[core]
+	# excludesFile: reminder that it defaults to ~/.config/git/ignore
+	fsmonitor = true
+	untrackedcache = true
 [diff]
 	algorithm = histogram
+	external = difft
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+[fetch]
+	prune = true
+	pruneTags = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = "~/.config/git/signers.ssh"
+	defaultKeyCommand = "ssh-add -L" # default: first key in agent
 [init]
 	defaultBranch = main
+[log]
+	# WHATWG Dates and Times Microsyntax
+	# I legitimately like this one ever since I implemented janet-date.
+	# It's the one that makes the most sense, at least to me.
+	date = "format:%F %T%z"
+[merge]
+	conflictstyle = zdiff3
+[pager]
+	difftool = true
+[pull]
+	rebase = true
 [push]
 	autoSetupRemote = true
+	default = simple
 [rebase]
 	autoSquash = true
+	autoStash  = true
+	updateRefs = true
+[rerere]
+	enabled = true
 [sendemail]
 	from = code@toast.bunkerlabs.net
 	smtpencryption = tls
@@ -30,11 +67,30 @@
 	email = code@toast.bunkerlabs.net
 	name = Chloé Vulquin
 
+# platform includes
+[includeIf "gitdir:/home/"]
+	path = "~/.config/git/linux.config"
+
+[includeIf "gitdir:/Users/"]
+	path = "~/.config/git/macos.config"
+
+# intended workflow:
+# own projects: clone with me:
+# github projects: clone with gh:
+# potential TODO: clone gh: but push to st: fork ? may not be possible
+# it would be possible if you could have something like:
+# [remote "me"]
+# 	url = st:*
+# and the * was somehow implied to be $(basename $origin)
 [url "git@github.com:CosmicToast/"]
-	insteadOf = "st:"
+	insteadOf = "me:"
 
 [url "https://github.com/"]
 	insteadOf = "gh:"
+
+[url "git@github.com:"]
+	pushInsteadOf = "https://github.com"
+	pushInsteadOf = "gh:"
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
