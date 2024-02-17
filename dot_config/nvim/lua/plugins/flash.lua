@@ -1,6 +1,11 @@
 return {
 	'folke/flash.nvim',
-	opts = {},
+	opts = {
+		-- disable flash search by default
+		modes = {
+			search = { enabled = false }
+		},
+	},
 	event = "VeryLazy",
 	keys = {
 		{
