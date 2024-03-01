@@ -12,7 +12,9 @@ return {
 				ai = {},
 				align = {},
 				basics = {},
-				bracketed = {},
+				bracketed = {
+					indent = { options = { change_type = 'diff' } },
+				},
 				comment = {},
 				completion = {},
 				cursorword = {},
