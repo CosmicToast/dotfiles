@@ -1,0 +1,3 @@
+. hascmd chafa || return
+
+alias chafa='chafa -f sixel'

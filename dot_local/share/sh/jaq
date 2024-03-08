@@ -1,0 +1,2 @@
+. hascmd jaq || return
+alias jq=jaq

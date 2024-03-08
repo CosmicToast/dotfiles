@@ -1,0 +1,3 @@
+. hascmd cling || return
+alias cci="cling  $CLING_ARGS --nologo -xc"
+alias cxxi="cling $CLING_ARGS --nologo -xc++"

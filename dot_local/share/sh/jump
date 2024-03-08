@@ -1,0 +1,5 @@
+. hascmd jump || return
+
+# this generally won't be used
+# in favor of explicit versions
+eval "$(jump shell)"

@@ -1,0 +1,1 @@
+test -x "$(command -v $1)"

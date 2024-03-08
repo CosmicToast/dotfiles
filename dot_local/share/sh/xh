@@ -1,0 +1,2 @@
+. hascmd xh || return
+alias x='xh -b'
