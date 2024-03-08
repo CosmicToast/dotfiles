@@ -1,1 +1,0 @@
-type -qf $argv

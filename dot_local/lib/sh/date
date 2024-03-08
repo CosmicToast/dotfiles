@@ -1,2 +1,0 @@
-. hascmd date || return
-alias weekdate="date '+%W %a'"

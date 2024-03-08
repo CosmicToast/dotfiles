@@ -1,9 +1,0 @@
-. hascmd lsd || return
-alias ls=lsd
-alias l='lsd -l'
-alias ll='lsd -l'
-alias la='lsd -a'
-alias lla='lsd -la'
-
-alias lh='lsd --hyperlink=auto'
-alias tree='lsd --tree --hyperlink=auto'

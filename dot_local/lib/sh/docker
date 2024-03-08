@@ -1,9 +1,0 @@
-if . hascmd podman; then
-	alias docker=podman
-elif . hascmd docker; then
-else
-	return
-fi
-
-alias dit='docker run -it --rm'
-alias drun='dit -v "$(pwd)":/pwd:Z -w /pwd'

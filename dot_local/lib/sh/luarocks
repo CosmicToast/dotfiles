@@ -1,3 +1,0 @@
-. hascmd luarocks || return
-export LUA_CPATH=$(luarocks path --lr-cpath)
-export LUA_PATH=$(luarocks path --lr-path)";./?.lua"
