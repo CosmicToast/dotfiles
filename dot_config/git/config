@@ -70,23 +70,40 @@
 	path = "local.config"
 
 # intended workflow:
-# own projects: clone with me:
+# own projects: clone with me: (github), st: (sr.ht toast), gt: (github toast)
 # github projects: clone with gh:
+# sr.ht projetcts: clone with srht:
 # potential TODO: clone gh: but push to st: fork ? may not be possible
 # it would be possible if you could have something like:
 # [remote "me"]
 # 	url = st:*
 # and the * was somehow implied to be $(basename $origin)
+
+# me:
 [url "git@github.com:CosmicToast/"]
 	insteadOf = "me:"
+	insteadOf = "gt:"
 
+[url "git@git.sr.ht:~spacetoast/"]
+	insteadOf = "st:"
+
+# github
 [url "https://github.com/"]
 	insteadOf = "gh:"
 
 [url "git@github.com:"]
-	pushInsteadOf = "https://github.com"
+	pushInsteadOf = "https://github.com/"
 	pushInsteadOf = "gh:"
 
+# sr.ht
+[url "https://git.sr.ht/"]
+	insteadOf = "srht:"
+
+[url "git@git.sr.ht:"]
+	pushInsteadOf = "https://git.sr.ht/"
+	pushInsteadOf = "srht:"
+
+# filters
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
