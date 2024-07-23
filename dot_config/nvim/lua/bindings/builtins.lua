@@ -1,7 +1,5 @@
 -- document missing builtins
-require 'which-key'.register {
-	['g'] = {
-		t = 'Next tab',
-		T = 'Previous tab',
-	},
+require 'which-key'.add {
+	{ 'gt', desc = 'Next tab' },
+	{ 'gT', desc = 'Previous tab' },
 }
