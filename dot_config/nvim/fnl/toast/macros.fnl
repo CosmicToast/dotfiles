@@ -2,9 +2,8 @@
 
 (local {: inc
         : drop
-        : group} (require :toast.core))
-(local {: from-pairs
-        : insert} (require :toast.table))
+        : assoc} (require :toast.core))
+(local {: insert} (require :toast.table))
 
 (fn tbl [...]
   "Generate a mixed table.
@@ -16,7 +15,7 @@
                         &until (= v '&)]
             (insert out v))
        post (drop (inc (length pre)) args)]
-  (from-pairs (group 2 post) pre)))
+  (assoc pre (unpack post))))
 
 (fn recc [reqspec key ...]
   "A common lua pattern is `require 'something'.call(arg1, arg2)`.

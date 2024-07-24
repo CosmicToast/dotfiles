@@ -13,4 +13,5 @@ local function insert(t, ...)
   table.insert(t, ...)
   return t
 end
-return {["from-pairs"] = from_pairs, insert = insert}
+local unpack = (table.unpack or unpack)
+return {["from-pairs"] = from_pairs, insert = insert, unpack = unpack}

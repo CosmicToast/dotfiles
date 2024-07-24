@@ -1,3 +1,6 @@
--- custom filetypes
-vim.filetype.add {extension = { janet = 'janet' }}
-vim.filetype.add {extension = { cls   = 'latex' }}
+-- [nfnl] Compiled from post.fnl by https://github.com/Olical/nfnl, do not edit.
+local fts = {{extension = {janet = "janet"}}, {extension = {cls = "latex"}}}
+for _, v in ipairs(fts) do
+  vim.filetype.add(v)
+end
+return nil

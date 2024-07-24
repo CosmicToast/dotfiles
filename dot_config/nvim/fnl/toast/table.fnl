@@ -11,5 +11,8 @@
   (table.insert t ...)
   t)
 
+(local unpack (or table.unpack unpack))
+
 {: from-pairs
- : insert}
+ : insert
+ : unpack}
