@@ -22,28 +22,33 @@ local function location(opts)
   end
   el = (_4_() or vim.fn.line("."))
   local swap = (sl > el)
+  local dec
+  local function _7_(_241)
+    return (_241 - 1)
+  end
+  dec = _7_
   if swap then
-    return {line1 = (1 - el), line2 = sl}
+    return {line1 = dec(el), line2 = sl}
   else
-    return {line1 = (1 - sl), line2 = el}
+    return {line1 = dec(sl), line2 = el}
   end
 end
 local function maplines(f)
-  local function _8_(opts)
+  local function _9_(opts)
     local opts0 = location(opts)
     local argp
-    local function _9_(_241)
-      local _10_ = opts0.line1
-      local _11_ = opts0.line2
-      local function _12_(...)
-        return _241(buf, _10_, _11_, true, ...)
+    local function _10_(_241)
+      local _11_ = opts0.line1
+      local _12_ = opts0.line2
+      local function _13_(...)
+        return _241(buf, _11_, _12_, true, ...)
       end
-      return _12_
+      return _13_
     end
-    argp = _9_
+    argp = _10_
     local setl = argp(vim.api.nvim_buf_set_lines)
     local getl = argp(vim.api.nvim_buf_get_lines)
-    local function _13_()
+    local function _14_()
       local tbl_17_auto = {}
       local i_18_auto = #tbl_17_auto
       for _, v in ipairs(getl()) do
@@ -56,59 +61,59 @@ local function maplines(f)
       end
       return tbl_17_auto
     end
-    return setl(_13_())
+    return setl(_14_())
   end
-  return _8_
+  return _9_
 end
 local _2bqf
-local function _15_(_241)
-  local _16_ = _241
-  if (_16_ == "") then
+local function _16_(_241)
+  local _17_ = _241
+  if (_17_ == "") then
     return _241
   else
-    local function _17_()
-      local s = _16_
+    local function _18_()
+      local s = _17_
       return s:match("^[%s>]")
     end
-    if ((nil ~= _16_) and _17_()) then
-      local s = _16_
+    if ((nil ~= _17_) and _18_()) then
+      local s = _17_
       return (">" .. s)
-    elseif (nil ~= _16_) then
-      local s = _16_
+    elseif (nil ~= _17_) then
+      local s = _17_
       return ("> " .. s)
     else
       return nil
     end
   end
 end
-_2bqf = _15_
+_2bqf = _16_
 local _qf
-local function _19_(_241)
-  local _20_ = _241
-  local function _21_()
-    local s = _20_
+local function _20_(_241)
+  local _21_ = _241
+  local function _22_()
+    local s = _21_
     return s:match("^> ")
   end
-  if ((nil ~= _20_) and _21_()) then
-    local s = _20_
+  if ((nil ~= _21_) and _22_()) then
+    local s = _21_
     return s:sub(3)
   else
-    local function _22_()
-      local s = _20_
+    local function _23_()
+      local s = _21_
       return s:match("^>")
     end
-    if ((nil ~= _20_) and _22_()) then
-      local s = _20_
+    if ((nil ~= _21_) and _23_()) then
+      local s = _21_
       return s:sub(2)
     elseif true then
-      local _ = _20_
+      local _ = _21_
       return _241
     else
       return nil
     end
   end
 end
-_qf = _19_
+_qf = _20_
 local _2bquote = maplines(_2bqf)
 local _quote = maplines(_qf)
 vim.api.nvim_buf_create_user_command(buf, "MdQuote", _2bquote, {range = true})

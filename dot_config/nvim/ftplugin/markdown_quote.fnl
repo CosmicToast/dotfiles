@@ -5,11 +5,12 @@
    Line1 is the start of the selection, and Line2 is the end."
   (let [sl (or (?. opts :line1) (vim.fn.line :v))
         el (or (?. opts :line2) (vim.fn.line :.))
-        swap (> sl el)]
+        swap (> sl el)
+        dec #(- $ 1)]
    (if swap
-     {:line1 (- 1 el)
+     {:line1 (dec el)
       :line2 sl}
-     {:line1 (- 1 sl)
+     {:line1 (dec sl)
       :line2 el})))
 
 (fn maplines [f]
