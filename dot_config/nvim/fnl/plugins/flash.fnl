@@ -1,19 +1,19 @@
-(import-macros {: tbl : recc} :toast.macros)
-[(tbl :folke/flash.nvim &
-      :opts {:modes {:search {:enabled false}}}
-      :event :VeryLazy
-      :keys [(tbl :s #(recc :flash :jump) &
+(import-macros {:mixed-table · : recc} :toast.macros)
+[(· :folke/flash.nvim &
+    :opts {:modes {:search {:enabled false}}}
+    :event :VeryLazy
+    :keys [(· :s #(recc :flash :jump) &
               :mode [:n :x :o]
               :desc :Flash)
-             (tbl :S #(recc :flash :treesitter) &
+           (· :S #(recc :flash :treesitter) &
               :mode [:n :x :o]
               :desc "Flash Treesitter")
-             (tbl :r #(recc :flash :remote) &
+           (· :r #(recc :flash :remote) &
               :mode :o
               :desc "Remote Flash")
-             (tbl :R #(recc :flash :treesitter_search) &
+           (· :R #(recc :flash :treesitter_search) &
               :mode [:o :x]
               :desc "Flash Treesitter Search")
-             (tbl :<c-s> #(recc :flash :toggle) &
+           (· :<c-s> #(recc :flash :toggle) &
               :mode :c
               :desc "Toggle Flash Search")])]

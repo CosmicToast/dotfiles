@@ -1,4 +1,4 @@
 ; plugin-specific category bindings
-(import-macros {: tbl : recc} :toast.macros)
+(import-macros {:mixed-table · : recc} :toast.macros)
 (recc :which-key :add
- [(tbl :<leader>f & :desc :+find)])
+ [(· :<leader>f & :desc :+find)])

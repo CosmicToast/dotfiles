@@ -1,5 +1,5 @@
 ; document missing builtins
-(import-macros {: tbl : recc} :toast.macros)
+(import-macros {:mixed-table · : recc} :toast.macros)
 (recc :which-key :add
- [(tbl :gt & :desc "Next tab")
-  (tbl :gT & :desc "Previous tab")])
+ [(· :gt & :desc "Next tab")
+  (· :gT & :desc "Previous tab")])

@@ -5,10 +5,11 @@
         : assoc} (require :toast.core))
 (local {: insert} (require :toast.table))
 
-(fn tbl [...]
+(fn mixed-table [...]
   "Generate a mixed table.
-   The format is (tbl 1 2 3 & :a :b) to produce {1; 2; 3; a = 'b'}.
-   This macro simply expands to the correct data during compile-time."
+   The format is (mixed-table 1 2 3 & :a :b) to produce {1; 2; 3; a = 'b'}.
+   This macro simply expands to the correct data during compile-time.
+   It is recommended to import this as a single character macro locally."
  (let [args [...]
        pre (accumulate [out []
                         _ v (ipairs args)
@@ -24,5 +25,5 @@
    The equivalent call is (recc :something :call arg1 arg2)"
  `((. (require ,reqspec) ,key) ,...))
 
-{: tbl
+{: mixed-table
  : recc}
