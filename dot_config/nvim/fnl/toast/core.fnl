@@ -58,8 +58,8 @@
         [k v & xs] [...]]
    (case k
     nil nil
-    (where k (and (number? k) (> lt k))) (tset t k v) ; TODO: (set (. t k) v)
-    (where k (and (number? k) (= k lt))) (table.insert t k v)
+    (where k (and (number? k) (> lt k))) (set (. t k) v)
+    (where k (and (number? k) (= k lt))) (table.insert t v)
     _ (tset t k v))
    (case (length xs)
     0 t
