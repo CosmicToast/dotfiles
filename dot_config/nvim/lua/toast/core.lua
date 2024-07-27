@@ -65,57 +65,53 @@ local function assoc(_3ft, ...)
   local k = _let_7_[1]
   local v = _let_7_[2]
   local xs = (function (t, k, e) local mt = getmetatable(t) if 'table' == type(mt) and mt.__fennelrest then return mt.__fennelrest(t, k) elseif e then local rest = {} for k, v in pairs(t) do if not e[k] then rest[k] = v end end return rest else return {(table.unpack or unpack)(t, k)} end end)(_let_7_, 3)
-  do
-    local _8_ = k
-    if (_8_ == nil) then
+  if (k == nil) then
+  else
+    local and_8_ = (nil ~= k)
+    if and_8_ then
+      local k0 = k
+      and_8_ = (number_3f(k0) and (lt > k0))
+    end
+    if and_8_ then
+      local k0 = k
+      t[k0] = v
     else
-      local function _9_(...)
-        local k0 = _8_
-        return (number_3f(k0) and (lt > k0))
+      local and_10_ = (nil ~= k)
+      if and_10_ then
+        local k0 = k
+        and_10_ = (number_3f(k0) and (k0 == lt))
       end
-      if ((nil ~= _8_) and _9_(...)) then
-        local k0 = _8_
-        t[k0] = v
+      if and_10_ then
+        local k0 = k
+        table.insert(t, v)
       else
-        local function _10_(...)
-          local k0 = _8_
-          return (number_3f(k0) and (k0 == lt))
-        end
-        if ((nil ~= _8_) and _10_(...)) then
-          local k0 = _8_
-          table.insert(t, k0, v)
-        elseif true then
-          local _ = _8_
-          t[k] = v
-        else
-        end
+        local _ = k
+        t[k] = v
       end
     end
   end
-  local _12_ = #xs
-  if (_12_ == 0) then
+  local _13_ = #xs
+  if (_13_ == 0) then
     return t
-  elseif (_12_ == 1) then
+  elseif (_13_ == 1) then
     return error("assoc expects even number of arguments after table, found odd number")
-  elseif true then
-    local _ = _12_
-    return assoc(t, unpack(xs))
   else
-    return nil
+    local _ = _13_
+    return assoc(t, unpack(xs))
   end
 end
 local function map(f, xs)
   local out = {}
   for _, v in ipairs((xs or {})) do
     local mapped = f(v)
-    local function _14_()
+    local function _15_()
       if (0 == select("#", mapped)) then
         return nil
       else
         return mapped
       end
     end
-    out = insert(out, _14_())
+    out = insert(out, _15_())
   end
   return out
 end
