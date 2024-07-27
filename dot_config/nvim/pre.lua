@@ -5,4 +5,12 @@ local options = {timeoutlen = 300, clipboard = "unnamedplus", completeopt = "men
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-return nil
+local _let_1_ = vim.version()
+local major = _let_1_["major"]
+local minor = _let_1_["minor"]
+if ((major > 0) or (minor >= 10)) then
+  vim.g.clipboard = {name = "OSC52", copy = {["+"] = require("vim.ui.clipboard.osc52").copy("+"), ["*"] = require("vim.ui.clipboard.osc52").copy("*")}, paste = {["+"] = require("vim.ui.clipboard.osc52").paste("+"), ["*"] = require("vim.ui.clipboard.osc52").paste("*")}}
+  return nil
+else
+  return nil
+end

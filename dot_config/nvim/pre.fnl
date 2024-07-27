@@ -1,3 +1,5 @@
+(import-macros {: recc} :toast.macros)
+
 (set vim.g.mapleader " ")
 (set vim.g.maplocalleader "\\")
 
@@ -24,3 +26,12 @@
 
 (each [k v (pairs options)]
   (tset vim.opt k v))
+
+; OSC 52 on nvim >= 0.10.0
+(let [{: major : minor} (vim.version)]
+ (when (or (> major 0) (>= minor 10))
+  (set vim.g.clipboard {:name :OSC52
+                        :copy  {:+ (recc :vim.ui.clipboard.osc52 :copy  :+)
+                                :* (recc :vim.ui.clipboard.osc52 :copy  :*)}
+                        :paste {:+ (recc :vim.ui.clipboard.osc52 :paste :+)
+                                :* (recc :vim.ui.clipboard.osc52 :paste :*)}})))
