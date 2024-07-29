@@ -8,6 +8,8 @@
    :gopls {}
    :ltex {}
    :lua_ls {}
+   :pyright {}
+   :ruff {:cmd [:ruff :server :--preview]}
    :texlab {:filetypes [:tex :plaintex :bib :latex]}
    :tsserver {:autostart false
               :root_dir (plist :tsconfig.json :package.json)}
