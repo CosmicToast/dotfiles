@@ -1,3 +1,5 @@
+(import-macros {: recc} :toast.macros)
+
 ; allow running code unconditionally before or after plugins / noplugins are loaded
 (fn doif [path]
   (let [path (.. (vim.fn.stdpath :config) :/ path)
@@ -20,7 +22,7 @@
                     :--branch=stable ; latest stable release
                     lazypath]))
    (vim.opt.rtp:prepend lazypath)
-   ((. (require :lazy) :setup) :plugins {})
+   (recc :lazy :setup :plugins {})
    (require :bindings)
    (vim.cmd "colorscheme starlight")))
 

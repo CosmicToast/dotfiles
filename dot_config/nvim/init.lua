@@ -18,8 +18,8 @@ else
     vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath})
   else
   end
-  do end (vim.opt.rtp):prepend(lazypath)
-  do end (require("lazy")).setup("plugins", {})
+  vim.opt.rtp:prepend(lazypath)
+  require("lazy").setup("plugins", {})
   require("bindings")
   vim.cmd("colorscheme starlight")
 end
