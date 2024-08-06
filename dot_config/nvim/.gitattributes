@@ -1,1 +1,1 @@
-lua/**/*.lua linguist-generated
+*.lua linguist-generated -diff
