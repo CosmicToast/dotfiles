@@ -1,0 +1,2 @@
+-- [nfnl] Compiled from fnl/bindings.fnl by https://github.com/Olical/nfnl, do not edit.
+return require("which-key").add({{"gt", desc = "Next tab"}, {"gT", desc = "Previous tab"}, {"<leader>e", vim.diagnostic.open_float, desc = "diag float"}, {"<leader>q", vim.diagnostic.setloclist, desc = "diag locations"}, {"[d", vim.diagnostic.goto_prev, desc = "prev diag"}, {"]d", vim.diagnostic.goto_next, desc = "next diag"}, {"<leader>f", desc = "+find"}})
