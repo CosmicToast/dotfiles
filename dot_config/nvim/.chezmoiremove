@@ -1,2 +1,5 @@
-lua/bindings/
 fnl/bindings/
+lua/bindings/
+
+fnl/plugins/bindings/
+lua/plugins/bindings/
