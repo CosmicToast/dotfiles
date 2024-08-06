@@ -17,6 +17,14 @@ end
 local function number_3f(n)
   return ("number" == type(n))
 end
+local function every_3f(pred, xs)
+  local pass = true
+  for _, x in ipairs(xs) do
+    if not pass then break end
+    pass = pred(x)
+  end
+  return pass
+end
 local function drop(n, xs)
   local out = {}
   for i, v in ipairs(xs) do
@@ -115,4 +123,4 @@ local function map(f, xs)
   end
   return out
 end
-return {dec = dec, inc = inc, ["empty?"] = empty_3f, ["nil?"] = nil_3f, ["number?"] = number_3f, drop = drop, first = first, last = last, group = group, assoc = assoc, map = map}
+return {dec = dec, inc = inc, ["empty?"] = empty_3f, ["nil?"] = nil_3f, ["number?"] = number_3f, ["every?"] = every_3f, drop = drop, first = first, last = last, group = group, assoc = assoc, map = map}

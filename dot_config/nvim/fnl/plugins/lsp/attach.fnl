@@ -20,8 +20,8 @@
 
              (· :wa lbf.add_workspace_folder    & :desc "add folder")
              (· :wr lbf.remove_workspace_folder & :desc "remove folder")
-             (· :wl #(print (vim.inspect (lbf.list_workspace_folders))) &
-                :desc "list folders")]
+             (· :wl #(vim.print (lbf.list_workspace_folders))) &
+                :desc "list folders"]
         ll (map #(assoc $ 1 (.. :<localleader><localleader> (. $ 1))) ll)]
    (vim.api.nvim_buf_set_option b :omnifunc :v:lua.vim.lsp.omnifunc)
    (recc :which-key :add

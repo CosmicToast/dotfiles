@@ -19,6 +19,13 @@
   "Returns true if the argument is a number."
   (= :number (type n)))
 
+(fn every? [pred xs]
+  "Returns true if (pred x) is logical true for every x in xs, else false."
+  (accumulate [pass true
+               _ x (ipairs xs)
+               &until (not pass)]
+   (pred x)))
+
 ; sequences
 (fn drop [n xs]
   "Returns a table of all but the first n elements in xs."
@@ -81,6 +88,7 @@
  : empty?
  : nil?
  : number?
+ : every?
  ; sequences
  : drop
  : first

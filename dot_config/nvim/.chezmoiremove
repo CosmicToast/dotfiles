@@ -3,3 +3,6 @@ lua/bindings/
 
 fnl/plugins/bindings/
 lua/plugins/bindings/
+
+fnl/plugins/lsp/capabilities.fnl
+lua/plugins/lsp/capabilities.lua
