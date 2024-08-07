@@ -24,7 +24,7 @@
              (each [k v (pairs opts)]
               (let [s (. (require :lspconfig) k)
                     c (or v.cmd s.document_config.default_config.cmd)
-                    att (or attach v.on_attach)]
+                    att (or v.on_attach attach)]
                  (when (executable? (. c 1))
                   (s.setup (assoc v :on_attach att))))))
     :opts #(gopts (partial recc :lspconfig.util :root_pattern)))]

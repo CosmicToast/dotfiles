@@ -11,7 +11,7 @@ local function _3_(_, opts)
   for k, v in pairs(opts) do
     local s = require("lspconfig")[k]
     local c = (v.cmd or s.document_config.default_config.cmd)
-    local att = (attach or v.on_attach)
+    local att = (v.on_attach or attach)
     if executable_3f(c[1]) then
       s.setup(assoc(v, "on_attach", att))
     else
