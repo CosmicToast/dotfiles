@@ -9,3 +9,6 @@ lua/plugins/lsp/capabilities.lua
 
 fnl/plugins/lsp/
 lua/plugins/lsp/
+
+fnl/plugins/mini
+lua/plugins/mini
