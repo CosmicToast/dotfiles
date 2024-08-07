@@ -17,6 +17,12 @@ end
 local function number_3f(n)
   return ("number" == type(n))
 end
+local function even_3f(n)
+  return (number_3f(n) and (0 == (n % 2)))
+end
+local function odd_3f(n)
+  return (number_3f(n) and (0 ~= (n % 2)))
+end
 local function every_3f(pred, xs)
   local pass = true
   for _, x in ipairs(xs) do
@@ -108,19 +114,49 @@ local function assoc(_3ft, ...)
     return assoc(t, unpack(xs))
   end
 end
+local function filter(f, xs)
+  local out = {}
+  for k, v in ipairs(xs) do
+    if f(k, v) then
+      out = insert(out, v)
+    else
+      out = out
+    end
+  end
+  return out
+end
 local function map(f, xs)
   local out = {}
   for _, v in ipairs((xs or {})) do
     local mapped = f(v)
-    local function _15_()
+    local function _16_()
       if (0 == select("#", mapped)) then
         return nil
       else
         return mapped
       end
     end
-    out = insert(out, _15_())
+    out = insert(out, _16_())
   end
   return out
 end
-return {dec = dec, inc = inc, ["empty?"] = empty_3f, ["nil?"] = nil_3f, ["number?"] = number_3f, ["every?"] = every_3f, drop = drop, first = first, last = last, group = group, assoc = assoc, map = map}
+local function mapcat(f, xs)
+  local out = {}
+  for _, v in ipairs(xs) do
+    for _0, v0 in ipairs(f(v)) do
+      table.insert(out, v0)
+    end
+    out = out
+  end
+  return out
+end
+local function flat(xs)
+  local _17_ = type(xs)
+  if (_17_ == "table") then
+    return mapcat(flat, xs)
+  else
+    local _ = _17_
+    return {xs}
+  end
+end
+return {dec = dec, inc = inc, ["empty?"] = empty_3f, ["nil?"] = nil_3f, ["number?"] = number_3f, ["even?"] = even_3f, ["odd?"] = odd_3f, ["every?"] = every_3f, drop = drop, first = first, last = last, group = group, flat = flat, assoc = assoc, filter = filter, map = map, mapcat = mapcat}

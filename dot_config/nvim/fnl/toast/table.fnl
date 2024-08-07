@@ -11,8 +11,18 @@
   (table.insert t ...)
   t)
 
+(fn concat [...]
+  "Join an arbitrary amount of tables.
+   Equivalent to a single 'layer' of flat."
+ (let [out []]
+   (each [_ xs (ipairs [...])]
+    (each [_ v (ipairs xs)]
+     (insert out v)))
+   out))
+
 (local unpack (or table.unpack unpack))
 
 {: from-pairs
  : insert
- : unpack}
+ : unpack
+ : concat}

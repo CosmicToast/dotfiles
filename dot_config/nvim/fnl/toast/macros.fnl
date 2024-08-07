@@ -2,8 +2,12 @@
 
 (local {: inc
         : drop
-        : assoc} (require :toast.core))
-(local {: insert} (require :toast.table))
+        : assoc
+        : filter
+        : even?
+        : odd?
+        : last} (require :toast.core))
+(local {: insert : unpack : concat} (require :toast.table))
 
 (fn mixed-table [...]
   "Generate a mixed table.
@@ -11,12 +15,16 @@
    This macro simply expands to the correct data during compile-time.
    It is recommended to import this as a single character macro locally."
  (let [args [...]
-       pre (accumulate [out []
-                        _ v (ipairs args)
-                        &until (= v '&)]
-            (insert out v))
-       post (drop (inc (length pre)) args)]
-  (assoc pre (unpack post))))
+       ; groups, separated by &s
+       grps (accumulate [out [[]]
+                         _ v (ipairs args)]
+             (if (= v '&)
+              (insert out [])
+              (do (table.insert (last out) v)
+                  out)))
+       kvs (concat (unpack (filter even? grps)))
+       arr (concat (unpack (filter odd?  grps)))]
+  (assoc arr (unpack kvs))))
 
 (fn recc [reqspec key ...]
   "A common lua pattern is `require 'something'.call(arg1, arg2)`.

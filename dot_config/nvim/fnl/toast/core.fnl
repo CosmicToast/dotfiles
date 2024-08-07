@@ -18,6 +18,12 @@
 (fn number? [n]
   "Returns true if the argument is a number."
   (= :number (type n)))
+(fn even? [n]
+  "Returns true if the argument is an even number."
+  (and (number? n) (= 0 (% n 2))))
+(fn odd? [n]
+  "Returns true if the argument is an odd number."
+  (and (number? n) (not= 0 (% n 2))))
 
 (fn every? [pred xs]
   "Returns true if (pred x) is logical true for every x in xs, else false."
@@ -72,6 +78,15 @@
     0 t
     1 (error "assoc expects even number of arguments after table, found odd number")
     _ (assoc t (unpack xs)))))
+; TODO: split into filter and kfilter?
+(fn filter [f xs]
+  "Returns a sequential table consisting only of elements in xs that return a truth value when passed to f.
+   Note that the call will be (f k v), not (f v)."
+  (accumulate [out []
+               k v (ipairs xs)]
+   (if (f k v)
+     (insert out v)
+    out)))
 (fn map [f xs]
   "Returns a sequential table consisting of the result of apply f to every item in xs."
   (accumulate [out []
@@ -80,6 +95,20 @@
     (insert out (if (= 0 (select :# mapped))
                     nil
                     mapped)))))
+; TODO: rework
+(fn mapcat [f xs]
+  (accumulate [out []
+               _ v (ipairs xs)]
+   (do (each [_ v (ipairs (f v))]
+        (table.insert out v))
+       out)))
+
+; sequences cont
+(fn flat [xs]
+  "Flattens a sequential table xs such that there are no sub-tables."
+  (case (type xs)
+   :table (mapcat flat xs)
+   _ [xs]))
 
 {;math
  : dec
@@ -88,12 +117,17 @@
  : empty?
  : nil?
  : number?
+ : even?
+ : odd?
  : every?
  ; sequences
  : drop
  : first
  : last
  : group
+ : flat
  ; HOF
  : assoc
- : map}
+ : filter
+ : map
+ : mapcat}

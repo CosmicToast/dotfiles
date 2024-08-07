@@ -2,25 +2,27 @@
 local buf = 0
 local function location(opts)
   local sl
-  local function _1_()
-    local t_2_ = opts
-    if (nil ~= t_2_) then
-      t_2_ = (t_2_).line1
+  local _2_
+  do
+    local t_1_ = opts
+    if (nil ~= t_1_) then
+      t_1_ = t_1_.line1
     else
     end
-    return t_2_
+    _2_ = t_1_
   end
-  sl = (_1_() or vim.fn.line("v"))
+  sl = (_2_ or vim.fn.line("v"))
   local el
-  local function _4_()
-    local t_5_ = opts
-    if (nil ~= t_5_) then
-      t_5_ = (t_5_).line2
+  local _5_
+  do
+    local t_4_ = opts
+    if (nil ~= t_4_) then
+      t_4_ = t_4_.line2
     else
     end
-    return t_5_
+    _5_ = t_4_
   end
-  el = (_4_() or vim.fn.line("."))
+  el = (_5_ or vim.fn.line("."))
   local swap = (sl > el)
   local dec
   local function _7_(_241)
@@ -49,17 +51,17 @@ local function maplines(f)
     local setl = argp(vim.api.nvim_buf_set_lines)
     local getl = argp(vim.api.nvim_buf_get_lines)
     local function _14_()
-      local tbl_17_auto = {}
-      local i_18_auto = #tbl_17_auto
+      local tbl_21_auto = {}
+      local i_22_auto = 0
       for _, v in ipairs(getl()) do
-        local val_19_auto = f(v)
-        if (nil ~= val_19_auto) then
-          i_18_auto = (i_18_auto + 1)
-          do end (tbl_17_auto)[i_18_auto] = val_19_auto
+        local val_23_auto = f(v)
+        if (nil ~= val_23_auto) then
+          i_22_auto = (i_22_auto + 1)
+          tbl_21_auto[i_22_auto] = val_23_auto
         else
         end
       end
-      return tbl_17_auto
+      return tbl_21_auto
     end
     return setl(_14_())
   end
@@ -67,19 +69,19 @@ local function maplines(f)
 end
 local _2bqf
 local function _16_(_241)
-  local _17_ = _241
-  if (_17_ == "") then
+  if (_241 == "") then
     return _241
   else
-    local function _18_()
-      local s = _17_
-      return s:match("^[%s>]")
+    local and_17_ = (nil ~= _241)
+    if and_17_ then
+      local s = _241
+      and_17_ = s:match("^[%s>]")
     end
-    if ((nil ~= _17_) and _18_()) then
-      local s = _17_
+    if and_17_ then
+      local s = _241
       return (">" .. s)
-    elseif (nil ~= _17_) then
-      local s = _17_
+    elseif (nil ~= _241) then
+      local s = _241
       return ("> " .. s)
     else
       return nil
@@ -89,27 +91,26 @@ end
 _2bqf = _16_
 local _qf
 local function _20_(_241)
-  local _21_ = _241
-  local function _22_()
-    local s = _21_
-    return s:match("^> ")
+  local and_21_ = (nil ~= _241)
+  if and_21_ then
+    local s = _241
+    and_21_ = s:match("^> ")
   end
-  if ((nil ~= _21_) and _22_()) then
-    local s = _21_
+  if and_21_ then
+    local s = _241
     return s:sub(3)
   else
-    local function _23_()
-      local s = _21_
-      return s:match("^>")
+    local and_23_ = (nil ~= _241)
+    if and_23_ then
+      local s = _241
+      and_23_ = s:match("^>")
     end
-    if ((nil ~= _21_) and _23_()) then
-      local s = _21_
+    if and_23_ then
+      local s = _241
       return s:sub(2)
-    elseif true then
-      local _ = _21_
-      return _241
     else
-      return nil
+      local _ = _241
+      return _241
     end
   end
 end

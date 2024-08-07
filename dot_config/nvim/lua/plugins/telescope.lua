@@ -1,7 +1,7 @@
 -- [nfnl] Compiled from fnl/plugins/telescope.fnl by https://github.com/Olical/nfnl, do not edit.
 local function gen(key, fun, desc)
   local function _1_()
-    return (require("telescope.builtin"))[fun]()
+    return require("telescope.builtin")[fun]()
   end
   return {("<leader>f" .. key), _1_, desc = desc}
 end
