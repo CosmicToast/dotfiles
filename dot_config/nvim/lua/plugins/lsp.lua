@@ -7,7 +7,7 @@ local insert = _local_2_["insert"]
 local _local_3_ = require("toast.nvim")
 local executable_3f = _local_3_["executable?"]
 local function gopts(plist)
-  return {clangd = {}, clojure_lsp = {root_dir = plist("project.clj", "deps.edn", "bb.edn", "build.boot", "shadow-cljs.edn", ".git")}, denols = {root_dir = plist("deno.json", "deno.jsonc"), autostart = false}, gopls = {}, ltex = {}, lua_ls = {}, pyright = {}, ruff = {cmd = {"ruff", "server", "--preview"}}, texlab = {filetypes = {"tex", "plaintex", "bib", "latex"}}, tsserver = {root_dir = plist("tsconfig.json", "package.json"), autostart = false}, zls = {}}
+  return {basedpyright = {}, clangd = {}, clojure_lsp = {root_dir = plist("project.clj", "deps.edn", "bb.edn", "build.boot", "shadow-cljs.edn", ".git")}, denols = {root_dir = plist("deno.json", "deno.jsonc"), autostart = false}, gopls = {}, ltex = {}, lua_ls = {}, ruff = {cmd = {"ruff", "server", "--preview"}}, texlab = {filetypes = {"tex", "plaintex", "bib", "latex"}}, tsserver = {root_dir = plist("tsconfig.json", "package.json"), autostart = false}, zls = {}}
 end
 local function attach(c, b)
   local lsp = vim.lsp

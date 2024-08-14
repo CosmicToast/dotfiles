@@ -4,14 +4,14 @@
 (local {: executable?} (require :toast.nvim))
 
 (fn gopts [plist]
-  {:clangd {}
+  {:basedpyright {}
+   :clangd {}
    :clojure_lsp {:root_dir (plist :project.clj :deps.edn :bb.edn :build.boot :shadow-cljs.edn :.git)}
    :denols {:autostart false
             :root_dir (plist :deno.json :deno.jsonc)}
    :gopls {}
    :ltex {}
    :lua_ls {}
-   :pyright {}
    :ruff {:cmd [:ruff :server :--preview]}
    :texlab {:filetypes [:tex :plaintex :bib :latex]}
    :tsserver {:autostart false
