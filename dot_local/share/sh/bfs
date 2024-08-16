@@ -1,0 +1,2 @@
+. hascmd bfs || return
+alias find=bfs
