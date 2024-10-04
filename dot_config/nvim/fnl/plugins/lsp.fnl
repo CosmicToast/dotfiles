@@ -14,8 +14,8 @@
    :lua_ls {}
    :ruff {:cmd [:ruff :server :--preview]}
    :texlab {:filetypes [:tex :plaintex :bib :latex]}
-   :tsserver {:autostart false
-              :root_dir (plist :tsconfig.json :package.json)}
+   :ts_ls {:autostart false
+           :root_dir (plist :tsconfig.json :jsconfig.json :package.json)}
    :zls {}})
 
 ; default on-attach
