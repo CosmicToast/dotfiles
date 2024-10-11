@@ -1,3 +1,2 @@
 . hascmd zoxide || return
 eval "$(zoxide init posix --hook prompt)"
-alias cd=z
