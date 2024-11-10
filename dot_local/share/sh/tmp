@@ -1,0 +1,11 @@
+. hascmd mktemp || return
+t() {
+	mkdir -p /tmp/t
+	cd /tmp/t
+}
+tt() {
+	local dir=$(mktemp -d)
+	[ -d "$dir" ] || return 1
+	cd "$dir"
+	trap "rm -r '$dir'" EXIT
+}
