@@ -35,3 +35,13 @@
                                 :* (recc :vim.ui.clipboard.osc52 :copy  :*)}
                         :paste {:+ (recc :vim.ui.clipboard.osc52 :paste :+)
                                 :* (recc :vim.ui.clipboard.osc52 :paste :*)}})))
+
+; editorconfig extensions
+(let [ec (require :editorconfig)]
+  (set ec.properties.filetype
+       (fn [bufnr val opts]
+         (let [bo (. vim.bo bufnr)]
+           (when (not= bo.filetype val)
+             (set bo.filetype val)
+             ; otherwise the change in ft will override editorconfig settings
+             (ec.config bufnr))))))
