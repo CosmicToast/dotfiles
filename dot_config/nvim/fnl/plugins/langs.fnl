@@ -1,4 +1,10 @@
 (import-macros {:mixed-table ·} :toast.macros)
+
+(local lisps [:clojure
+              :fennel
+              :janet
+              :scm])
+
 ; language support
 [(· :nvim-treesitter/nvim-treesitter &
     :version false
@@ -17,9 +23,9 @@
     :version false
     :dependencies [:godlygeek/tabular]
     :ft :markdown)
- ; helper for lisps
+ ; helpers for lisps
  (· :gpanders/nvim-parinfer &
-    :ft [:clojure
-         :fennel
-         :janet
-         :scm])]
+    :ft lisps)
+ (· :julienvincent/nvim-paredit &
+    :ft lisps
+    :config {:indent {:enabled true}})]
