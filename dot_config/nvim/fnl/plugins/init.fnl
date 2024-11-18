@@ -15,6 +15,7 @@
  (· :stevearc/dressing.nvim &
     :opts {})
  (· :Olical/conjure &
+    :branch :main
     :config (fn [_ opts]
              (each [k v (pairs opts)]
               (tset vim.g (.. :conjure# k) v)))

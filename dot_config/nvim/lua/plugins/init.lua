@@ -6,4 +6,4 @@ local function _1_(_, opts)
   end
   return nil
 end
-return {{"folke/lazy.nvim", version = false}, {"Olical/nfnl", ft = "fennel"}, {"stevearc/dressing.nvim", opts = {}}, {"Olical/conjure", config = _1_, ft = conjureft, opts = {["mapping#prefix"] = "<localleader>e", ["extract#tree_sitter#enabled"] = true, filetypes = conjureft, ["filetype#fennel"] = "conjure.client.fennel.stdio", ["filetype#janet"] = "conjure.client.janet.stdio"}}, {"tpope/vim-repeat"}}
+return {{"folke/lazy.nvim", version = false}, {"Olical/nfnl", ft = "fennel"}, {"stevearc/dressing.nvim", opts = {}}, {"Olical/conjure", branch = "main", config = _1_, ft = conjureft, opts = {["mapping#prefix"] = "<localleader>e", ["extract#tree_sitter#enabled"] = true, filetypes = conjureft, ["filetype#fennel"] = "conjure.client.fennel.stdio", ["filetype#janet"] = "conjure.client.janet.stdio"}}, {"tpope/vim-repeat"}}
