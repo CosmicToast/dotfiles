@@ -7,5 +7,5 @@ function tt
 	set -l dir (mktemp -d)
 	test -d $dir || return 1
 	cd $dir
-	trap "rm -r '$dir'" EXIT
+	trap "rm -rf '$dir'" EXIT
 end
