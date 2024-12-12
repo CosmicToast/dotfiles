@@ -1,5 +1,0 @@
-. hascmd uv || return
-export UV_PYTHON_BIN_DIR=$HOME/.local/uv/bin
-export UV_PYTHON_INSTALL_DIR=$HOME/.local/uv/python
-export UV_TOOL_BIN_DIR=$HOME/.local/uv/bin
-export UV_TOOL_DIR=$HOME/.local/uv/tool
