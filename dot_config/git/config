@@ -8,7 +8,7 @@
 	root = rev-parse --show-toplevel
 [branch]
 	sort = -committerdate
-[columns]
+[column]
 	ui = auto
 [commit]
 	verbose = true
@@ -18,7 +18,11 @@
 	untrackedcache = true
 [diff]
 	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [fetch]
+	all = true
 	prune = true
 	pruneTags = true
 [gpg]
@@ -26,6 +30,8 @@
 [gpg "ssh"]
 	allowedSignersFile = "~/.config/git/signers.ssh"
 	defaultKeyCommand = "ssh-add -L" # default: first key in agent
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = main
 [log]
@@ -40,12 +46,14 @@
 [push]
 	autoSetupRemote = true
 	default = simple
+	followTags = true
 [rebase]
 	autoSquash = true
 	autoStash  = true
 	updateRefs = true
 [rerere]
 	enabled = true
+	autoupdate = true
 [sendemail]
 	from = code@toast.bunkerlabs.net
 	smtpencryption = tls
@@ -55,6 +63,8 @@
 [status]
 	branch = true
 	short = true
+[tag]
+	sort = version:refname
 [user]
 	email = code@toast.bunkerlabs.net
 	name = Chloé Vulquin
