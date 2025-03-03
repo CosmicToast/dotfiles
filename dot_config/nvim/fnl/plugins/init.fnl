@@ -23,7 +23,6 @@
            :extract#tree_sitter#enabled true
            ; disabling lua, python, rust
            :filetypes conjureft
-           :filetype#fennel :conjure.client.fennel.stdio
            :filetype#janet  :conjure.client.janet.stdio}
     :ft conjureft)
  [:tpope/vim-repeat]]
