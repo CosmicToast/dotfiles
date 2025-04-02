@@ -11,7 +11,6 @@
            :comment {}
            :completion {}
            :cursorword {}
-           :indentscope {}
            :move {}
            :splitjoin {}
            :statusline {}

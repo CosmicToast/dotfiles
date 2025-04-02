@@ -5,4 +5,4 @@ local function _1_(_, opts)
   end
   return nil
 end
-return {{"echasnovski/mini.nvim", config = _1_, opts = {ai = {}, align = {}, basics = {}, bracketed = {indent = {options = {change_type = "diff"}}}, comment = {}, completion = {}, cursorword = {}, indentscope = {}, move = {}, splitjoin = {}, statusline = {}, tabline = {}, trailspace = {}}, version = false}}
+return {{"echasnovski/mini.nvim", config = _1_, opts = {ai = {}, align = {}, basics = {}, bracketed = {indent = {options = {change_type = "diff"}}}, comment = {}, completion = {}, cursorword = {}, move = {}, splitjoin = {}, statusline = {}, tabline = {}, trailspace = {}}, version = false}}

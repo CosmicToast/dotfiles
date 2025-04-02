@@ -11,9 +11,13 @@
 ; simple stuff that doesn't need any handling
 ; and doesn't fit in elsewhere
 [(· :folke/lazy.nvim & :version false)
+ (· :folke/snacks.nvim &
+    :priority 1000 :lazy false
+    :opts {:indent    {:enabled true
+                       :scope   {:enabled false}}
+           :input     {:enabled true}
+           :quickfile {:enabled true}})
  (· :Olical/nfnl     & :ft :fennel)
- (· :stevearc/dressing.nvim &
-    :opts {})
  (· :Olical/conjure &
     :branch :main
     :config (fn [_ opts]

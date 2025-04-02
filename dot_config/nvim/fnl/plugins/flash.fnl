@@ -2,9 +2,12 @@
 [(· :folke/flash.nvim &
     :opts {:modes {:search {:enabled false}}}
     :event :VeryLazy
-    :keys [(· :s #(recc :flash :jump) &
-              :mode [:n :x :o]
-              :desc :Flash)
+    :keys [(· :<cr> #(recc :flash :jump) &
+                    :mode [:n :x :o]
+                    :desc :Flash)
+           (· :s #(recc :flash :jump) &
+                  :mode [:n :x :o]
+                  :desc :Flash)
            (· :S #(recc :flash :treesitter) &
               :mode [:n :x :o]
               :desc "Flash Treesitter")
