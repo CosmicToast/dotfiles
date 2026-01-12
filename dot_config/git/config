@@ -90,9 +90,8 @@
 # and the * was somehow implied to be $(basename $origin)
 
 # me:
-[url "git@github.com:CosmicToast/"]
+[url "anna:git/"]
 	insteadOf = "me:"
-	insteadOf = "gt:"
 
 [url "git@git.sr.ht:~spacetoast/"]
 	insteadOf = "st:"
