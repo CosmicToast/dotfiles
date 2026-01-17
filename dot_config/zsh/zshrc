@@ -2,7 +2,8 @@ setopt autocd noautopushd nocdablevars
 setopt pushdignoredups pushdtohome
 setopt globstarshort nullglob rematchpcre
 setopt appendhistory histfindnodups histignoredups histignorespace histlexwords
-setopt interactivecomments pathdirs printexitvalue rcquotes shortloops
+setopt interactivecomments hashexecutablesonly pathdirs
+setopt printexitvalue rcquotes shortloops
 setopt hup
 setopt promptpercent transientrprompt
 setopt cbases functionargzero multios pipefail
