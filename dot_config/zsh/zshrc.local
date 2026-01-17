@@ -1,0 +1,7 @@
+alias mcli=mc
+alias dequarantine='xattr -d com.apple.quarantine'
+
+export EDITOR='emacsclient -c -nw'
+export VISUAL='emacsclient -c'
+
+path[3,0]=(/opt/homebrew/opt/{curl,file-formula,ncurses,ruby,sqlite}/bin)

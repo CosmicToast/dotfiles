@@ -1,8 +1,13 @@
 : ${PAGER:=less} ${EDITOR:=vi} \
   ${HOSTNAME:=$(uname -n)} ${USER:=$(id -un)} \
-  ${HISTFILE:=~/.local/state/history/zsh}
+  ${HISTFILE:=~/.local/state/history/zsh} \
+  ${ZDOTDIR:=~/.config/zsh}
 export EDITOR HISTFILE PAGER
 
+NOPATHHELPER=1
+zstyle :grml:completion:compinit arguments -iC
+
 path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
+fpath[1,0]=("$ZDOTDIR"/functions)
 
 [ -r ~/.local/share/sh/xdg ] && source ~/.local/share/sh/xdg
