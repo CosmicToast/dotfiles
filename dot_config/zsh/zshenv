@@ -1,0 +1,8 @@
+: ${PAGER:=less} ${EDITOR:=vi} \
+  ${HOSTNAME:=$(uname -n)} ${USER:=$(id -un)} \
+  ${HISTFILE:=~/.local/state/history/zsh}
+export EDITOR HISTFILE PAGER
+
+path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
+
+[ -r ~/.local/share/sh/xdg ] && source ~/.local/share/sh/xdg

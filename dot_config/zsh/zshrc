@@ -1,0 +1,72 @@
+setopt autocd noautopushd nocdablevars
+setopt pushdignoredups pushdtohome
+setopt globstarshort nullglob rematchpcre
+setopt appendhistory histfindnodups histignoredups histignorespace histlexwords
+setopt interactivecomments pathdirs printexitvalue rcquotes shortloops
+setopt hup
+setopt promptpercent transientrprompt
+setopt cbases functionargzero multios pipefail
+
+bindkey -e
+
+# grml did not run, source zshrc.pre and zshrc.local ourselves
+if [ -z "$GRML_OSTYPE" ]; then
+	xsource() {
+		local i
+		for i in "$@"; do
+			[ -r "$i" ] && source "$i"
+		done
+	}
+	xsource "${ZDOTDIR:-~}/.zshrc.local"
+fi
+
+hascmd() { (( ${+commands[$1]} )) }
+# command replacements
+hascmd bat && alias cat=bat c='bat -pp'
+hascmd bfs && alias find=bfs
+hascmd bsdtar && alias tar=bsdtar
+hascmd chafa && alias chafa='chafa -f sixel'
+hascmd colordiff && alias diff=colordiff dif='colordiff -u'
+hascmd jaq && alias jq=jaq
+hascmd podman && alias docker=podman
+(hascmd eza && alias ls=eza tree='ls -T') ||
+	(hascmd exa && alias ls=exa tree='ls -T') ||
+	(hascmd lsd && alias ls=lsd lh='ls --hyperlink=auto' tree='lh --tree')
+hascmd ugrep && alias grep='ugrep -G -.' xdump='ugrep -X ""'
+hascmd ug && alias uq='ug -Q' ux='ug -UX' uz='ug -z' g='ug -G -.'
+
+# convenience aliases
+alias e='emacsclient -c -nw' E='emacsclient -c' m=micro n=nvim
+hascmd ip && alias ip='ip -c=auto'
+alias l='ls -l' ll='ls -l' la='ls -a' lla='ls -la'
+hascmd docker || hascmd podman && \
+	alias dit='podman run -it --rm' drun='dit -v "$(pwd)":/pwd:Z -w /pwd'
+alias ossh='ssh -oStrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=Error'
+hascmd xh && alias x='xh -b'
+
+# program configuration
+hascmd ffmpeg && alias ffmpeg='ffmpeg -hide_banner'
+hascmd ffprobe && alias ffprobe='ffprobe -hide_banner'
+hascmd rg && [ -f ~/.config/ripgrep.conf ] &&
+	export RIPGREP_CONFIG_PATH=~/.config/ripgrep.conf
+hascmd sk && export SKIM_DEFAULT_COMMAND='fd -t f || rg --files || find .'
+if hascmd luarocks; then
+	typeset -T LUA_CPATH=$(luarocks path --lr-cpath) lua_cpath
+	typeset -T LUA_PATH="$(luarocks path --lr-path);/?.lua" lua_path
+fi
+
+t() {
+	mkdir -p /tmp/t
+	cd /tmp/t
+}
+tt() {
+	local dir=$(mktemp -d)
+	[ -d "$dir" ] || return 1
+	cd "$dir"
+	trap "rm -rf '$dir'" EXIT
+}
+
+# jump/zoxide/etc should be in zshrc.local or similar
+
+# source zshrc.post
+xsource "${ZDOTDIR:-~}/.zshrc.post"
