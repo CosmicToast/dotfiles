@@ -1,14 +1,16 @@
-: ${PAGER:=less} ${EDITOR:=vi} \
-  ${HOSTNAME:=$(uname -n)} ${USER:=$(id -un)} \
-  ${HISTFILE:=~/.local/state/history/zsh} \
-  ${ZDOTDIR:=~/.config/zsh}
-export EDITOR HISTFILE PAGER
+# vim: ft=zsh
+: ${ZDOTDIR:=~/.config/zsh}
 
-NOPATHHELPER=1
-zstyle :grml:completion:compinit arguments -iC
+xsource() {
+	local i
+	for i; do
+		[ -r "$i" ] && source "$i"
+	done
+}
+xzsource() {
+	xsource "${@/#/$ZDOTDIR/}"
+}
 
-setopt nullglob
-path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
-fpath[1,0]=("$ZDOTDIR"/functions)
+xzsource zshenv.pre
 
-[ -r ~/.local/share/sh/xdg ] && source ~/.local/share/sh/xdg
+xzsource zshenv.{local,post}

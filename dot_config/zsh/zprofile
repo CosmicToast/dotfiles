@@ -1,0 +1,15 @@
+# vim: ft=zsh
+xzsource zprofile.pre
+
+: ${PAGER:=less} ${EDITOR:=vi} \
+  ${HOSTNAME:=$(uname -n)} ${USER:=$(id -un)} \
+  ${HISTFILE:=~/.local/state/history/zsh}
+export EDITOR HISTFILE PAGER
+
+setopt nullglob
+path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
+fpath[1,0]=($ZDOTDIR/functions)
+
+xsource ~/.local/share/sh/xdg
+
+xzsource zprofile.{local,post}

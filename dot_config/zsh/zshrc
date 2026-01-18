@@ -1,63 +1,46 @@
-setopt autocd noautopushd nocdablevars
-setopt pushdignoredups pushdtohome
-setopt globstarshort nullglob rematchpcre
-setopt appendhistory histfindnodups histignoredups histignorespace histlexwords
-setopt interactivecomments hashexecutablesonly pathdirs
-setopt printexitvalue rcquotes shortloops
-setopt hup
-setopt promptpercent transientrprompt
-setopt cbases functionargzero multios pipefail
+# vim: ft=zsh
 
+xzsource zshrc.pre
+
+xzsource zshrc.{options,style}
+
+### Bindings
 bindkey -e
 
-# grml did not run, source zshrc.pre and zshrc.local ourselves
-if [ -z "$GRML_OSTYPE" ]; then
-	xsource() {
-		local i
-		for i in "$@"; do
-			[ -r "$i" ] && source "$i"
-		done
-	}
-	xsource "${ZDOTDIR:-~}/.zshrc.local"
-	autoload compinit
-	compinit -C
-fi
-# remove stale: 14 days
-find "${ZDOTDIR:-~}" -name .zcompdump -mtime 14 -exec rm '{}' ';'
-
-hascmd() { (( ${+commands[$1]} )) }
-# command replacements
-hascmd bat && alias cat=bat c='bat -pp'
-hascmd bfs && alias find=bfs
-hascmd bsdtar && alias tar=bsdtar
-hascmd colordiff && alias diff=colordiff dif='colordiff -u'
-hascmd jaq && alias jq=jaq
-hascmd podman && alias docker=podman
-(hascmd eza && alias ls=eza tree='ls -T') ||
-	(hascmd exa && alias ls=exa tree='ls -T') ||
-	(hascmd lsd && alias ls=lsd lh='ls --hyperlink=auto' tree='lh --tree')
+### Functions, Aliases
+## Command replacements
+[[ -x =bat ]]       && alias cat=bat c='bat -pp'
+[[ -x =bfs ]]       && alias find=bfs
+[[ -x =bsdtar ]]    && alias tar=bsdtar
+[[ -x =colordiff ]] && alias diff=colordiff dif='colordiff -u'
+[[ -x =jaq ]]       && alias jq=jaq
+[[ -x =podman ]]    && alias docker=podman
+if     [[ -x =eza ]] { alias ls=eza tree='ls -T'
+} elif [[ -x =exa ]] { alias ls=exa tree='ls -T'
+} elif [[ -x =lsd ]] { alias ls=lsd lh='ls --hyperlink=auto' tree='lh --tree' }
 alias l='ls -l' ll='ls -l' la='ls -a' lla='ls -la'
-hascmd ugrep && alias grep='ugrep -G -.' xdump='ugrep -X ""'
+[[ -x =ugrep ]] && alias grep='ugrep -G -.' xdump='ugrep -X ""'
 alias uq='ug -Q' ux='ug -UX' uz='ug -z' g='ug -G -.'
 
-# convenience aliases
+## Convenience aliases
 alias e='emacsclient -c -nw' E='emacsclient -c' m=micro n=nvim
 alias ip='ip -c=auto'
 alias dit='docker run -it --rm' drun='dit -v "$(pwd)":/pwd:Z -w /pwd'
 alias ossh='ssh -oStrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=Error'
 alias x='xh -b'
 
-# program configuration
+## Program configuration
 alias chafa='chafa -f sixel'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
 [ -f ~/.config/ripgrep.conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep.conf
 export SKIM_DEFAULT_COMMAND='fd -t f || rg --files || find .'
-if hascmd luarocks; then
+if [[ -x =luarocks ]] {
 	typeset -T LUA_CPATH=$(luarocks path --lr-cpath) lua_cpath
 	typeset -T LUA_PATH="$(luarocks path --lr-path);/?.lua" lua_path
-fi
+}
 
+## Functions
 t() {
 	mkdir -p /tmp/t
 	cd /tmp/t
@@ -69,7 +52,22 @@ tt() {
 	trap "rm -rf '$dir'" EXIT
 }
 
-# jump/zoxide/etc should be in zshrc.local or similar
+# you may want to:
+# set up jump/zoxide/etc
+# zstyle :completion:*:hosts list of hosts
+# hash -d short=directory
+xzsource zshrc.{local,post}
 
-# source zshrc.post
-xsource "${ZDOTDIR:-~}/.zshrc.post"
+# if compinit hasn't ran, run it now
+# this way there's at least some minimum compatibility with /etc/zshrc
+if (( ! ${+_comps} )) {
+	autoload -Uz compinit
+	compinit -i
+}
+
+# if promptinit hasn't ran, run it now, and set a default prompt
+if (( ! ${+functions[prompt]} )) {
+	autoload -Uz promptinit
+	promptinit
+	prompt fish
+}

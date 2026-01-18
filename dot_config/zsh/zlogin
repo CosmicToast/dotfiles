@@ -1,0 +1,4 @@
+# vim: ft=zsh
+xzsource zlogin.pre
+
+xzsource zlogin.{local,post}

@@ -1,0 +1,4 @@
+# vim: ft=zsh
+xzsource zlogout.pre
+
+xzsource zlogout.{local,post}

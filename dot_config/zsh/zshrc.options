@@ -1,0 +1,78 @@
+# vim: ft=zsh
+### Options
+# Almost all options are set explicitly
+## Changing Directories
+# TODO: consider -T
+setopt -JED +NTw
+setopt nocdsilent nochasedots noposixcd pushdignoredups
+
+## Completion
+setopt -9X +SY
+setopt alwayslastprompt noalwaystoend automenu autonamedirs autoparamkeys
+setopt autoparamslash autoremoveslash nobashautolist completealiases
+setopt completeinword noglobcomplete nohashlistall listambiguous nolistbeep
+setopt listpacked listrowsfirst
+
+## Expansion and Globbing
+setopt -3GP +2F4I8u
+setopt bareglobqual nobraceccl caseglob casematch nocasepaths nocshnullglob
+# TODO: consider forcefloat, globassign
+setopt equals extendedglob noforcefloat noglobassign globstarshort noglobsubst
+setopt nohistsubstpattern noignoreclosebraces nokshglob nomagicequalsubst
+setopt multibyte numericglobsort rematchpcre noshglob
+setopt warncreateglobal nowarnnestedvar
+
+## History
+setopt -hg +K
+setopt appendhistory noextendedhistory nohistallowclobber nohistbeep
+setopt histexpiredupsfirst histfcntllock histfindnodups nohistignorealldups
+setopt histlexwords nohistnofunctions histnostore histreduceblanks
+setopt histsavebycopy histsavenodups histverify noincappendhistory
+setopt noincappendhistorytime nosharehistory
+
+## Initialisation
+# NOTE: +df unspecified on purpose
+setopt +a
+
+## Input/Output
+# NOTE: +1 since that should be handled by the prompt ideally
+setopt -kQ +C0O7U1HL
+# TODO: consider nohashcmds
+setopt aliases clobberempty nodvorak flowcontrol hashcmds hashdirs
+setopt hashexecutablesonly nopathscript noprinteightbit rcquotes normstarwait
+setopt shortloops noshortrepeat
+
+## Job Control
+# TODO: consider -R
+setopt -6m5 +WR
+setopt autocontinue checkjobs checkrunningjobs hup noposixjobs
+
+## Prompting
+setopt +V
+setopt nopromptbang promptsp promptpercent promptsubst transientrprompt
+
+## Scripts and Functions
+setopt +en
+# TODO: consider cprecedences
+setopt noaliasfuncdef cbases nocprecedences debugbeforecmd noerrreturn
+setopt evallineno functionargzero nolocalloops nolocaloptions nolocalpatterns
+setopt nolocaltraps multifuncdef multios nooctalzeroes pipefail
+# NOTE: nosourcetrace, +vx not set for specifying it on the CLI
+setopt notypesetsilent notypesettounset
+
+## Shell Emulation
+setopt +y
+setopt appendcreate nobashrematch nobsdecho nocontinueonerror
+setopt nocshjunkiehistory nocshjunkieloops nocshjunkiequotes nocshnullcmd
+# TODO: consider kshautoload, be sad about kshzerosubscript
+setopt noksharrays nokshautoload kshoptionprint nokshtypeset nokshzerosubscript
+setopt noposixaliases noposixargzero noposixbuiltins noposixidentifiers
+setopt noposixstrings noposixtraps noshfileexpansion noshnullcmd noshoptionletters
+setopt notrapsasync
+
+## Shell State
+# NOTE: Omitted intentionally
+
+## Zle
+setopt -B +M
+# NOTE: Many omitted intentionally

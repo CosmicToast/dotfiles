@@ -1,0 +1,23 @@
+# vim: ft=zsh
+# a prompt meant to imitate fish's default prompt
+# it's not meant to be too close necessarily, just same feel overall,
+# while being a minimal/cheap implementation
+
+setopt promptsubst
+autoload -Uz add-zsh-hook
+autoload -Uz vcs_info # make sure you configure yours!
+
+_prompt_fish_chpwd() { FORCE_RUN_VCS_INFO=1; }
+_prompt_fish_precmd() { vcs_info fish; }
+
+add-zsh-hook chpwd  _prompt_fish_chpwd
+add-zsh-hook precmd _prompt_fish_precmd
+
+add-zsh-hook -Uz chpwd vcs_info
+
+local login='%(!.%F{red}.%F{green})%n%f@%m'
+local vcsinfo='${vcs_info_msg_0_:+ $vcs_info_msg_0_}'
+local returnc='%(0?.. %F{red}[%?]%f)'
+local separator='%(!.#.>)'
+
+PS1="$login %~$vcsinfo$returnc$separator "
