@@ -1,3 +1,31 @@
-[ -z "$XDG_DATA_HOME"   ] || export XDG_DATA_HOME=~/.local/share
-[ -z "$XDG_CONFIG_HOME" ] || export XDG_CONFIG_HOME=~/.config
-[ -z "$XDG_STATE_HOME"  ] || export XDG_STATE_HOME=~/.local/state
+#!/bin/sh
+: ${XDG_CONFIG_HOME:=~/.config}
+: ${XDG_DATA_HOME:=~/.local/share}
+: ${XDG_STATE_HOME:=~/.local/state}
+export XDG_CONFIG_HOME XDG_DATA_HOME XDG_STATE_HOME
+
+# XDG compatiblity settings for everything
+export BUN_INSTALL=~/.local/bun
+
+export CLJ_CACHE=~/.cache/clojure CLJ_CONFIG=~/.config/clojure
+
+export DOTNET_CLI_HOME=~/.local/dotnet
+
+export ELAN_HOME=~/.local/elan
+
+export JULIA_DEPOT_PATH=~/.local/julia JULIAUP_DEPOT_PATH=~/.local/julia
+
+export OPAMROOT=~/.local/ocaml
+
+export IPYTHONDIR=~/.local/python/ipython JUPYTER_CONFIG_DIR=~/.local/python/jupyter
+export UV_PYTHON_BIN_DIR=~/.local/python/bin UV_PYTHON_INSTALL_DIR=~/.local/python/interpreters UV_TOOL_BIN_DIR=~/.local/python/bin UV_TOOL_DIR=~/.local/python/tools
+
+export CARGO_HOME=~/.local/rust RUSTUP_HOME=~/.local/rust
+
+export RLWRAP_HOME=~/.local/state/history
+export LESSHISTFILE=$RLWRAP_HOME/less
+export NODE_REPL_HISTORY=$RLWRAP_HOME/node
+export PSQL_HISTORY=$RLWRAP_HOME/psql
+export PYTHON_HISTORY=$RLWRAP_HOME/python
+export SQLITE_HISTORY=$RLWRAP_HOME/sqlite
+export USQL_HISTORY=$RLWRAP_HOME/usql
