@@ -41,15 +41,10 @@ if [[ -x =luarocks ]] {
 }
 
 ## Functions
+autoload -Uz tt
 t() {
 	mkdir -p /tmp/t
 	cd /tmp/t
-}
-tt() {
-	local dir=$(mktemp -d)
-	[ -d "$dir" ] || return 1
-	cd "$dir"
-	trap "rm -rf '$dir'" EXIT
 }
 
 # you may want to:

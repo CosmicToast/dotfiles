@@ -1,0 +1,15 @@
+# vim: ft=zsh
+typeset -gaU __tt_exit_dirs
+__tt_exit() {
+	(( ${+__tt_exit_dirs[1]} )) && rm -r "${__tt_exit_dirs[@]}"
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook zshexit __tt_exit
+tt() {
+	local dir=$(mktemp -d)
+	[ -d "$dir" ] || return 1
+	cd "$dir"
+	__tt_exit_dirs+=("$dir")
+}
+
+tt "$@"
