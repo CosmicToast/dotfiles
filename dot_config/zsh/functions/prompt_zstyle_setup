@@ -1,0 +1,92 @@
+# vim: ft=zsh
+# a prompt entirely configured by zstyle, usable by default
+# make sure you configure vcs_info!
+
+prompt_opts=(subst percent)
+
+# default parts
+zstyle :prompt:zstyle:default:parts login     '%n@%m'
+zstyle :prompt:zstyle:default:parts vcsinfo   '${vcs_info_msg_0_}'
+zstyle :prompt:zstyle:default:parts return    '%?'
+zstyle :prompt:zstyle:default:parts separator '%#'
+zstyle :prompt:zstyle:default:parts pwd       '%~'
+
+# default prompts
+zstyle :prompt:zstyle:default ps1 \
+	login ' ' pwd ' ' vcsinfo ' ' return ' ' separator ' '
+
+prompt_zstyle_reset() {
+	zstyle -d :prompt:zstyle
+	zstyle -d :prompt:zstyle:parts
+}
+
+prompt_zstyle_doparts() {
+	# $1 is the style to query
+	local out=''
+	local part parts value
+	zstyle -a :prompt:zstyle $1 parts ||
+		zstyle -a :prompt:zstyle:default $1 parts ||
+		parts=()
+	for part in $parts; do
+		zstyle -s :prompt:zstyle:parts $part value ||
+			zstyle -s :prompt:zstyle:default:parts $part value ||
+			value=$part
+		print -n "$value"
+	done
+}
+autoload -Uz vcs_info
+prompt_zstyle_precmd() {
+	vcs_info
+
+	PS1=$(prompt_zstyle_doparts ps1)
+	PS2=$(prompt_zstyle_doparts ps2)
+	PS3=$(prompt_zstyle_doparts ps3)
+	PS4=$(prompt_zstyle_doparts ps4)
+	RPS1=$(prompt_zstyle_doparts rps1)
+	RPS2=$(prompt_zstyle_doparts rps2)
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd prompt_zstyle_precmd
+
+# presets
+prompt_zstyle_preset() {
+	case $1 in
+		fish)
+			prompt_zstyle_reset
+			zstyle :prompt:zstyle:parts login  '%(!.%F{red}.%F{green})%n%f@%m'
+			zstyle :prompt:zstyle:parts return '%(0?.. %F{red}[%?]%f)'
+			zstyle :prompt:zstyle:parts separator '%(!.#.>)'
+			zstyle :prompt:zstyle:parts vcsinfo \
+				'${vcs_info_msg_0_:+ $vcs_info_msg_0_}'
+			zstyle :prompt:zstyle ps1 \
+				login ' ' pwd vcsinfo return separator ' '
+			;;
+	esac
+}
+
+prompt_zstyle_help() {
+	cat <<-EOF
+	Entirely zstyle-configured prompt.
+
+	:prompt:zstyle {ps{1,2,3,4},rps{1,2}} is used as the specification,
+	each part of those arrays is either found in :prompt:zstyle:parts or
+	:prompt:zstyle:default:parts, or it's set as is. This means you can
+	put bare strings in there, like ' ' or '%~', and customize various parts
+	by setting them under :prompt:zstyle:parts.
+
+	If you enable this prompt with a preset, it will set some styles for you
+	in accordance with the preset. Available presets are:
+	* fish (like the fish shell)
+
+	To completely reset user customizations (except stuff under :defaults),
+	run prompt_zstyle_reset.
+
+	Note that it's up to you to configure vcs_info.
+	The default vcsinfo part simply prints ${vcs_info_msg_0_}.
+	Some presets will prepend it with a space (if non-null only).
+
+	Promptsubst is enabled, so you can have function calls in your custom parts.
+	EOF
+}
+
+(( $# )) && prompt_zstyle_preset "$@"

@@ -65,5 +65,5 @@ if (( ! ${+_comps} )) {
 if (( ! ${+functions[prompt]} )) {
 	autoload -Uz promptinit
 	promptinit
-	prompt fish
+	prompt zstyle fish
 }
