@@ -4,6 +4,10 @@ xzsource zprofile.pre
 : ${PAGER:=less} ${EDITOR:=vi} \
   ${HOSTNAME:=$(uname -n)} ${USER:=$(id -un)} \
   ${HISTFILE:=~/.local/state/history/zsh}
+if [ "${HISTSIZE:-30}" = 30 ]; then
+	HISTSIZE=5000
+	SAVEHIST=10000
+fi
 export EDITOR HISTFILE PAGER
 
 setopt nullglob
