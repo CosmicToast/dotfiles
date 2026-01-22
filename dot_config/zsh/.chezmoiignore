@@ -1,4 +1,10 @@
 .*
+!.cache
+!.zprofile
+!.zshenv
+!.zshrc
+!.zlogin
+!.zlogout
 *.pre
 *.local
 *.post
