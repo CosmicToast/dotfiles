@@ -7,6 +7,7 @@ xsource() {
 	for i; do
 		[ -r "$i" ] && source "$i"
 	done
+	:
 }
 xzsource() {
 	xsource "${@/#/$ZDOTDIR/}"
