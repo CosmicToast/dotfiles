@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 # vim: ft=zsh
 # a prompt meant to imitate fish's default prompt
 # it's not meant to be too close necessarily, just same feel overall,

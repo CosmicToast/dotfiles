@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 # vim: ft=zsh
 # a prompt entirely configured by zstyle, usable by default
 # make sure you configure vcs_info!
