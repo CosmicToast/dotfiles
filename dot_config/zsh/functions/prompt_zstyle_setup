@@ -62,6 +62,15 @@ prompt_zstyle_preset() {
 			zstyle :prompt:zstyle ps1 \
 					login ' ' pwd vcsinfo return separator ' '
 			;;
+		grml)
+			prompt_zstyle_reset
+			zstyle :prompt:zstyle:parts login '%B%(!.%F{red}.%F{blue})%n%f%b@%m'
+			zstyle :prompt:zstyle:parts return '%(0?..%F{red}%?%f )'
+			zstyle :prompt:zstyle:parts vcsinfo \
+				   '${vcs_info_msg_0_:+ $vcs_info_msg_0_}'
+			zstyle :prompt:zstyle ps1 \
+				   return login ' ' pwd vcsinfo ' ' separator ' '
+			;;
 	esac
 }
 
