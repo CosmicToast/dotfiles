@@ -58,9 +58,9 @@ prompt_zstyle_preset() {
 			zstyle :prompt:zstyle:parts return '%(0?.. %F{red}[%?]%f)'
 			zstyle :prompt:zstyle:parts separator '%(!.#.>)'
 			zstyle :prompt:zstyle:parts vcsinfo \
-				'${vcs_info_msg_0_:+ $vcs_info_msg_0_}'
+					'${vcs_info_msg_0_:+ $vcs_info_msg_0_}'
 			zstyle :prompt:zstyle ps1 \
-				login ' ' pwd vcsinfo return separator ' '
+					login ' ' pwd vcsinfo return separator ' '
 			;;
 	esac
 }
