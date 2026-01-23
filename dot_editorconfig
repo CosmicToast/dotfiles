@@ -7,11 +7,13 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+# whether tabs or spaces, default to 4
+indent_size = tab
+tab_width = 4
 
 # don't mess with my makefiles thanks
 [Makefile]
 indent_style = tab
-indent_size  = 4
 
 [*.{janet,json,jsonc,md,yaml,yml}]
 indent_style = space
