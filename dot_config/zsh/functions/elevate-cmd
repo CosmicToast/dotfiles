@@ -1,0 +1,36 @@
+# -*- mode: sh *-*
+# vim: ft=zsh
+
+# the de-facto prefix is determined by:
+# * zstyle (by widget name) if it's set
+# * else the dedicated environment variable
+# * else it's detected at runtime
+local prefix
+if ! zstyle -s :zle:$WIDGET prefix prefix; then
+	prefix=$ELEVATECMD
+	if [[ -z $prefix ]]; then
+		# the runtime detection is uncached in case you install/uninstall
+		if   [[ -x =doas ]]; then prefix=doas
+		elif [[ -x =sudo ]]; then prefix=sudo
+		else return 1 # do nothing
+		fi
+	fi
+fi
+
+# if the prefix is already present, we remove it
+if [[ $BUFFER = ${(b)~prefix}\ * ]]; then
+	# if the cursor is not inside the prefix
+	if [[ $#LBUFFER -gt $#prefix ]]; then
+		# then just remove it from the LBUFFER
+		LBUFFER=${LBUFFER#$prefix }
+	# otherwise, the cursor *is* inside the prefix
+	else
+		# so remove it from the buffer and move the cursor to start of line
+		BUFFER=${BUFFER#$prefix }
+		CURSOR=0
+	fi
+# otherwise we add it
+else
+	# prefix always goes into LBUFFER since it's not there yet
+	LBUFFER="$prefix $LBUFFER"
+fi

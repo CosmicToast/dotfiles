@@ -6,7 +6,13 @@ xzsource zshrc.pre
 xzsource zshrc.{options,style}
 
 ### Bindings
+autoload -Uz edit-command-line elevate-cmd
+zle -N edit-command-line
+zle -N elevate-cmd
+
 bindkey -e
+bindkey '^x^e' edit-command-line
+bindkey '^[s'  elevate-cmd
 
 ### Functions, Aliases
 ## Command replacements
