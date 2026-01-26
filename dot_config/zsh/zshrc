@@ -65,16 +65,16 @@ t() {
 # setup terminal integration / osc0
 xzsource zshrc.{local,post}
 
-# if compinit hasn't ran, run it now
-# this way there's at least some minimum compatibility with /etc/zshrc
-if (( ! ${+_comps} )) {
-	autoload -Uz compinit
-	compinit -i
-}
-
 # if promptinit hasn't ran, run it now, and set a default prompt
 if (( ! ${+functions[prompt]} )) {
 	autoload -Uz promptinit
 	promptinit
 	prompt zstyle fish
+}
+
+# if compinit hasn't ran, run it now
+# this way there's at least some minimum compatibility with /etc/zshrc
+if (( ! ${+_comps} )) {
+	autoload -Uz compinit
+	compinit -i
 }
