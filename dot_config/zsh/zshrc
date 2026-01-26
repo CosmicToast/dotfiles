@@ -15,6 +15,8 @@ bindkey '^x^e' edit-command-line
 bindkey '^[s'  elevate-cmd
 
 ### Functions, Aliases
+autoload -Uz xfirstcmd
+
 ## Command replacements
 [[ -x =bat ]]       && alias cat=bat c='bat -pp'
 [[ -x =bfs ]]       && alias find=bfs
@@ -22,9 +24,11 @@ bindkey '^[s'  elevate-cmd
 [[ -x =colordiff ]] && alias diff=colordiff dif='colordiff -u'
 [[ -x =jaq ]]       && alias jq=jaq
 [[ -x =podman ]]    && alias docker=podman
-if     [[ -x =eza ]] { alias ls=eza tree='ls -T'
-} elif [[ -x =exa ]] { alias ls=exa tree='ls -T'
-} elif [[ -x =lsd ]] { alias ls=lsd lh='ls --hyperlink=auto' tree='lh --tree' }
+case $(xfirstcmd eza exa lsd) {
+	eza) alias ls=eza tree='ls -T' ;;
+	exa) alias ls=exa tree='ls -T' ;;
+	lsd) alias ls=lsd lh='ls --hyperlink=auto' tree='lh --tree' ;;
+}
 alias l='ls -l' ll='ls -l' la='ls -a' lla='ls -la'
 [[ -x =ugrep ]] && alias grep='ugrep -G -.' xdump='ugrep -X ""'
 alias uq='ug -Q' ux='ug -UX' uz='ug -z' g='ug -G -.'

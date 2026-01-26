@@ -1,0 +1,11 @@
+# -*- mode: sh -*-
+# vim: ft=zsh
+
+local cmd
+for cmd {
+	if [[ -x =$cmd ]] {
+		echo $cmd
+		return 0
+	}
+}
+return 1
