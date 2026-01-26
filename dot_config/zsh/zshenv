@@ -15,6 +15,6 @@ xzsource() {
 
 xzsource zshenv.pre
 
-fpath[1,0]=($ZDOTDIR/functions)
+fpath[1,0]=($ZDOTDIR/functions.local $ZDOTDIR/functions)
 
 xzsource zshenv.{local,post}
