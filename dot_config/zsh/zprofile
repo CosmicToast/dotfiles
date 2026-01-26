@@ -9,7 +9,7 @@ if [ "${HISTSIZE:-30}" = 30 ]; then
 	HISTSIZE=5000
 	SAVEHIST=10000
 fi
-export EDITOR HISTFILE PAGER
+export EDITOR PAGER
 
 setopt nullglob
 path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
