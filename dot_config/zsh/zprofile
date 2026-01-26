@@ -9,6 +9,7 @@ if [ "${HISTSIZE:-30}" = 30 ]; then
 	HISTSIZE=5000
 	SAVEHIST=10000
 fi
+[ -d "${HISTFILE:h}" ] || mkdir -m 0700 "${HISTFILE:h}"
 export EDITOR PAGER
 
 setopt nullglob
