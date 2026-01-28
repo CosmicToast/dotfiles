@@ -33,6 +33,12 @@ zstyle ':completion:*:man:*'     menu yes select
 
 zstyle ':completion:*' special-dirs ..
 
+if (( ${#ls_colors} )); then
+	zstyle ':completion:*:default' list-colors $ls_colors
+elif [[ -n $LS_COLORS ]]; then
+	zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+fi
+
 # you may want the following in zshrc.local...
 # :completion:*:hosts list of hosts
 

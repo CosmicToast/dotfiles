@@ -12,6 +12,15 @@ fi
 [ -d "${HISTFILE:h}" ] || mkdir -m 0700 "${HISTFILE:h}"
 export EDITOR PAGER
 
+if [[ -z $LS_COLORS ]]; then
+	# directory, executable, file, pipe, socket
+	# blockdev chardev symlink broken-link
+	export -T LS_COLORS ls_colors=(
+		di='1;34' ex='1;32' fi=0      pi=33     so='1;35'
+		bd='1;33' cd='1;33' ln='1;36' or='1;31'
+	)
+fi
+
 setopt nullglob
 path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
 
