@@ -1,5 +1,10 @@
 # -*- mode: sh -*-
 # vim: ft=zsh
+
+# default -> remove the /
+[[ $WORDCHARS = '*?_-.[]~=/&;!#$%^(){}<>' ]] &&
+	WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 ### ZStyle
 ## completion
 # TODO: a lot of this is stolen from grml; probably figure out more details
