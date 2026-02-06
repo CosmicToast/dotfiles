@@ -18,11 +18,11 @@ indent_style = tab
 
 [*.{janet,json,jsonc,md,yaml,yml}]
 indent_style = space
-indent_size  = 2
+tab_width    = 2
 
 [*.org]
 # required by org mode
 tab_width = 8
 
 [*.xml]
-indent_size  = 2
+tab_width = 2
