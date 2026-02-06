@@ -20,6 +20,9 @@ indent_style = tab
 indent_style = space
 tab_width    = 2
 
+[*.md]
+trim_trailing_whitespace = false
+
 [*.org]
 # required by org mode
 tab_width = 8
