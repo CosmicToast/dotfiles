@@ -7,10 +7,8 @@
 
 ; language support
 [(· :nvim-treesitter/nvim-treesitter &
-    :version false
     :build ::TSUpdate
     :dependnecies [:nvim-treesitter/nvim-treesitter-textobjects]
-    :main :nvim-treesitter.configs
     :opts {:ensure_installed :all
            :ignore_install   [:norg]
            :sync_install     :true
