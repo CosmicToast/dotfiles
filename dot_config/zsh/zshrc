@@ -13,6 +13,11 @@ zle -N elevate-cmd
 bindkey -e
 bindkey '^x^e' edit-command-line
 bindkey '^[s'  elevate-cmd
+# {ctrl,alt}-{left,right}
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
 
 ### Functions, Aliases
 autoload -Uz xfirstcmd
