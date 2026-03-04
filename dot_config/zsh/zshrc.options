@@ -11,7 +11,7 @@ setopt nocdsilent nochasedots noposixcd pushdignoredups
 setopt -9X +SY
 setopt alwayslastprompt noalwaystoend automenu autonamedirs autoparamkeys
 setopt autoparamslash autoremoveslash nobashautolist completealiases
-setopt completeinword noglobcomplete nohashlistall listambiguous nolistbeep
+setopt completeinword noglobcomplete hashlistall listambiguous nolistbeep
 setopt listpacked listrowsfirst
 
 ## Expansion and Globbing
