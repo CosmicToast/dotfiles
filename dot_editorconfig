@@ -16,7 +16,7 @@ tab_width = 4
 [Makefile]
 indent_style = tab
 
-[*.{janet,json,jsonc,md,yaml,yml}]
+[*.{el,janet,json,jsonc,md,yaml,yml}]
 indent_style = space
 tab_width    = 2
 
