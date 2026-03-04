@@ -1,5 +1,4 @@
-# -*- mode: sh -*-
-# vim: ft=zsh
+# -*- mode: sh -*- vim: ft=zsh
 : ${ZDOTDIR:=~/.config/zsh}
 
 xsource() {
