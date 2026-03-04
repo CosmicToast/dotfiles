@@ -74,7 +74,7 @@ xzsource zshrc.{local,post}
 if (( ! ${+functions[prompt]} )) {
 	autoload -Uz promptinit
 	promptinit
-	prompt zstyle fish
+	prompt zstyle grml
 }
 
 # if compinit hasn't ran, run it now
