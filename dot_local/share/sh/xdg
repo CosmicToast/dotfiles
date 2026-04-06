@@ -22,6 +22,8 @@ export UV_PYTHON_BIN_DIR=~/.local/python/bin UV_PYTHON_INSTALL_DIR=~/.local/pyth
 
 export CARGO_HOME=~/.local/rust RUSTUP_HOME=~/.local/rust
 
+export ZVM_PATH=~/.local/zig
+
 export RLWRAP_HOME=~/.local/state/history
 export LESSHISTFILE=$RLWRAP_HOME/less
 export NODE_REPL_HISTORY=$RLWRAP_HOME/node

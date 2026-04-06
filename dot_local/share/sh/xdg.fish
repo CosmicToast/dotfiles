@@ -27,6 +27,8 @@ set -gx UV_TOOL_DIR           ~/.local/python/tools
 set -gx CARGO_HOME  ~/.local/rust
 set -gx RUSTUP_HOME ~/.local/rust
 
+set -gx ZVM_PATH ~/.local/zig
+
 set -gx RLWRAP_HOME ~/.local/state/history
 set -gx LESSHIST_FILE     $RLWRAP_HOME/less
 set -gx NODE_REPL_HISTORY $RLWRAP_HOME/node
