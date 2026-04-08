@@ -1,2 +1,5 @@
-*-local.el
-*.elc
+local.el
+**/*-local.el
+**/*.elc
+**/*.eln
+**/.user-lisp-autoloads.el
