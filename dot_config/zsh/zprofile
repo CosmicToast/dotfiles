@@ -21,7 +21,7 @@ if [[ -z $LS_COLORS ]]; then
 fi
 
 setopt nullglob
-path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr,}{/local,}/{s,}bin)
+path=(~/bin ~/.local/share/sh ~/.local/*/bin /opt/*/bin {/usr{/local,},}/{s,}bin(-/))
 
 xsource ~/.local/share/sh/xdg
 
