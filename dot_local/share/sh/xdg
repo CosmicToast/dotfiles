@@ -1,13 +1,17 @@
 #!/bin/sh
-: ${XDG_CONFIG_HOME:=~/.config}
+: ${XDG_CONFIG_HOME:=~/.local/etc}
 : ${XDG_DATA_HOME:=~/.local/share}
-: ${XDG_STATE_HOME:=~/.local/state}
-export XDG_CONFIG_HOME XDG_DATA_HOME XDG_STATE_HOME
+: ${XDG_STATE_HOME:=~/.local/var}
+: ${XDG_CACHE_HOME:=~/.local/tmp}
+export XDG_CONFIG_HOME XDG_DATA_HOME XDG_STATE_HOME XDG_CACHE_HOME
+
+# convenience
+xdgetc="$XDG_CONFIG_HOME" xdgshr="$XDG_DATA_HOME" xdgvar="$XDG_STATE_HOME"  xdgtmp="$XDG_CACHE_HOME"
 
 # XDG compatiblity settings for everything
 export BUN_INSTALL=~/.local/bun
 
-export CLJ_CACHE=~/.cache/clojure CLJ_CONFIG=~/.config/clojure
+export CLJ_CACHE="$xdgtmp"/clojure CLJ_CONFIG="$xdgetc"/clojure
 
 export DOTNET_CLI_HOME=~/.local/dotnet
 
@@ -24,7 +28,7 @@ export CARGO_HOME=~/.local/rust RUSTUP_HOME=~/.local/rust
 
 export ZVM_PATH=~/.local/zig
 
-export RLWRAP_HOME=~/.local/state/history
+export RLWRAP_HOME="$xdgvar"/history
 export LESSHISTFILE=$RLWRAP_HOME/less
 export NODE_REPL_HISTORY=$RLWRAP_HOME/node
 export PSQL_HISTORY=$RLWRAP_HOME/psql

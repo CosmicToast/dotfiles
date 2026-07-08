@@ -1,14 +1,15 @@
 #!/bin/sh
-set -q XDG_CONFIG_HOME || set -gx XDG_CONFIG_HOME ~/.config
+set -q XDG_CONFIG_HOME || set -gx XDG_CONFIG_HOME ~/.local/etc
 set -q XDG_DATA_HOME   || set -gx XDG_DATA_HOME   ~/.local/share
-set -q XDG_STATE_HOME  || set -gx XDG_STATE_HOME  ~/.local/state
+set -q XDG_STATE_HOME  || set -gx XDG_STATE_HOME  ~/.local/var
+set -q XDG_CACHE_HOME  || set -gx XDG_CACHE_HOME  ~/.local/tmp
 
 # XDG compatiblity settings for everything
 
 set -gx BUN_INSTALL ~/.local/bun
 
-set -gx CLJ_CACHE  ~/.cache/clojure
-set -gx CLJ_CONFIG ~/.config/clojure
+set -gx CLJ_CACHE  $XDG_CACHE_HOME/clojure
+set -gx CLJ_CONFIG $XDG_CONFIG_HOME/clojure
 
 set -gx DOTNET_CLI_HOME ~/.local/dotnet
 
@@ -29,7 +30,7 @@ set -gx RUSTUP_HOME ~/.local/rust
 
 set -gx ZVM_PATH ~/.local/zig
 
-set -gx RLWRAP_HOME ~/.local/state/history
+set -gx RLWRAP_HOME $XDG_STATE_HOME/history
 set -gx LESSHIST_FILE     $RLWRAP_HOME/less
 set -gx NODE_REPL_HISTORY $RLWRAP_HOME/node
 set -gx PSQL_HISTORY      $RLWRAP_HOME/psql
