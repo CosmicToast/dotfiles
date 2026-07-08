@@ -2,8 +2,7 @@
 ### Options
 # Almost all options are set explicitly
 ## Changing Directories
-# TODO: consider -T
-setopt -JED +NTw
+setopt -JTED +Nw
 setopt nocdsilent nochasedots noposixcd pushdignoredups
 
 ## Completion
