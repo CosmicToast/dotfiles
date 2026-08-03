@@ -7,7 +7,7 @@
 export XDG_CONFIG_HOME XDG_DATA_HOME XDG_STATE_HOME XDG_CACHE_HOME
 
 # convenience
-xdgopt="$XDG_HOME" xdgetc="$XDG_CONFIG_HOME" xdgshr="$XDG_DATA_HOME" xdgvar="$XDG_STATE_HOME"  xdgtmp="$XDG_CACHE_HOME"
+xdgopt="$XDG_OPT" xdgetc="$XDG_CONFIG_HOME" xdgshr="$XDG_DATA_HOME" xdgvar="$XDG_STATE_HOME"  xdgtmp="$XDG_CACHE_HOME"
 
 # XDG compatiblity settings for everything
 export BUN_INSTALL="$xdgopt"/bun
