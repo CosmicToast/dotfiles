@@ -1,11 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
 (add-to-list-many 'treesit-language-source-alist
-  '(go    . ("https://github.com/tree-sitter/tree-sitter-go"))
-  '(gomod . ("https://github.com/camdencheek/tree-sitter-go-mod")))
-
+  '(go    "https://github.com/tree-sitter/tree-sitter-go")
+  '(gomod "https://github.com/camdencheek/tree-sitter-go-mod"))
 (comment
-  (ts-install-grammar 'go)
-  (ts-install-grammar 'gomod))
+  (treesit-ensure-installed 'go)
+  (treesit-ensure-installed 'gomod))
 
 ;; eglot supports gopls by default
