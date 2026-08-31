@@ -27,10 +27,9 @@
 
 ;; Janet
 (add-to-list 'treesit-language-source-alist
-  '(janet-simple . ("https://github.com/sogaiu/tree-sitter-janet-simple")))
-
+  '(janet-simple "https://github.com/sogaiu/tree-sitter-janet-simple"))
 (comment
-  (ts-install-grammar 'janet-simple)
+  (treesit-ensure-installed 'janet-simple)
   (dolist (repo '("https://github.com/sogaiu/janet-ts-mode.git"
                   "https://github.com/sogaiu/ajrepl.git"
                   "https://github.com/sogaiu/flycheck-janet.git"))
