@@ -13,4 +13,3 @@
 
 ;; in a terminal
 (with-package kkp (global-kkp-mode 1))
-(xterm-mouse-mode 1)
