@@ -1,11 +1,11 @@
 ;; -*- lexical-binding: t; -*-
 
 ;; QML
-(comment
-  (package-vc-install "https://github.com/xhcoding/qml-ts-mode"))
-
 (add-to-list 'treesit-language-source-alist
-  '(qmljs . ("https://github.com/yuja/tree-sitter-qmljs")))
+  '(qmljs "https://github.com/yuja/tree-sitter-qmljs"))
+(comment
+  (package-vc-install "https://github.com/xhcoding/qml-ts-mode")
+  (treesit-ensure-installed 'qmljs))
 
 (with-load 'eglot
   (add-to-list 'eglot-server-programs
