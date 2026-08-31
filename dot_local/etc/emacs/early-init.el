@@ -2,18 +2,8 @@
 (setopt gc-cons-threshold 64000000 ; emacs... 64mb
         load-prefer-newer t ; set before any requires
         native-comp-jit-compilation t
-        user-lisp-directory (expand-file-name "elisp" user-emacs-directory)
-        user-lisp-autoload-file (expand-file-name
-                                  ".user-lisp-autoloads.el"
-                                  user-lisp-directory))
-(add-to-list 'load-path user-lisp-directory) ; keep even in >31
-;; remove in emacs >=31
-(when (not (file-exists-p user-lisp-autoload-file))
-  (loaddefs-generate user-lisp-directory
-                     user-lisp-autoload-file
-                     nil ";; tosti"))
-(when (file-exists-p user-lisp-autoload-file)
-  (load user-lisp-autoload-file nil t))
+        user-lisp-directory (expand-file-name "elisp" user-emacs-directory))
+(add-to-list 'load-path user-lisp-directory)
 
 (require 'dash)
 (require 'oven)
