@@ -27,6 +27,9 @@
 ;; initial setup
 (require 'treesit)
 (add-to-list 'treesit-extra-load-path (xdg/usr "tree-sitter/"))
+(setopt
+  treesit-enabled-modes t
+  treesit-auto-install-grammar 'ask)
 
 (loadil 'lang.d/c) ; c/c++ and c-likes (odin, zig…)
 (loadil 'lang.d/go)
