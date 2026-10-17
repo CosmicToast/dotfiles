@@ -95,7 +95,7 @@
 
  '(eat-term-color-black   ((t (:inherit (ansi-color-black)))))
  '(eat-term-color-red     ((t (:inherit (ansi-color-red)))))
- '(eat-term-color-green   ((t (:inehrit (ansi-color-green)))))
+ '(eat-term-color-green   ((t (:inherit (ansi-color-green)))))
  '(eat-term-color-yellow  ((t (:inherit (ansi-color-yellow)))))
  '(eat-term-color-blue    ((t (:inherit (ansi-color-blue)))))
  '(eat-term-color-magenta ((t (:inherit (ansi-color-magenta)))))
@@ -103,7 +103,7 @@
  '(eat-term-color-white   ((t (:inherit (ansi-color-white)))))
  '(eat-term-color-bright-black   ((t (:inherit (ansi-color-bright-black)))))
  '(eat-term-color-bright-red     ((t (:inherit (ansi-color-bright-red)))))
- '(eat-term-color-bright-green   ((t (:inehrit (ansi-color-bright-green)))))
+ '(eat-term-color-bright-green   ((t (:inherit (ansi-color-bright-green)))))
  '(eat-term-color-bright-yellow  ((t (:inherit (ansi-color-bright-yellow)))))
  '(eat-term-color-bright-blue    ((t (:inherit (ansi-color-bright-blue)))))
  '(eat-term-color-bright-magenta ((t (:inherit (ansi-color-bright-magenta)))))
